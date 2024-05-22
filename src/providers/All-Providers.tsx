@@ -24,7 +24,7 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
               // colorTextBase: "Black",
 
               // Alias Token
-              colorBgContainer: "#15151F",
+              colorBgContainer: "#6D6D6D",
             },
           }}
         >
