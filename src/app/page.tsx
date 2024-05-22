@@ -1,10 +1,9 @@
-import { Button } from "antd";
+import HomePage from "@/components/Home/Home";
 
 const Home = () => {
   return (
     <div>
-      Welcome to travel buddy
-      <Button>test button</Button>
+      <HomePage />
     </div>
   );
 };
