@@ -23,9 +23,7 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-[800px]">
         <h1 className="text-5xl font-bold">Dream Destinations</h1>
         <p className="text-xl">Your dream vacation is just a click away</p>
-        <button className="bg-drdPrimary text-white px-6 py-2 mt-4 rounded-md">
-          Explore
-        </button>
+        <Button size="large">Explore</Button>
 
         {/* search box  */}
         <div className="bg-white bg-opacity-80 w-full mx-auto mt-4 px-10 py-6 rounded-3xl">
@@ -36,15 +34,11 @@ const HeroSection = () => {
                 size="large"
                 prefix={<FaLocationDot />}
                 placeholder="Search Destination"
-                style={{ backgroundColor: "GrayText" }}
               />
             </div>
             <div className="space-y-4">
               <h3 className="text-black">Start Dates</h3>
-              <DatePicker
-                size="large"
-                style={{ backgroundColor: "GrayText" }}
-              />
+              <DatePicker size="large" />
             </div>
             <div className="space-y-4">
               <h3 className="text-black">Travel Types</h3>
