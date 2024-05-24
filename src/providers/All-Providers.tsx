@@ -29,7 +29,7 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
               // colorPrimaryHover: "#FDE723",
 
               // Alias Token
-              // colorBgContainer: "#6D6D6D",
+              // colorBgContainer: "#E6F4E0",
             },
           }}
         >

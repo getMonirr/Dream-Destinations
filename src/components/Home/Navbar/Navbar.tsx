@@ -42,7 +42,7 @@ const profileContent = (
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-drdBg h-[80px] flex items-center justify-center px-4">
+    <div className="bg-drd-light-green h-[80px] flex items-center justify-center px-4">
       <RootContainer>
         <div className="hidden md:block">
           <AppNavbar />
@@ -96,7 +96,9 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
           <Link href={item.link} key={item.key}>
             <p
               className={`${
-                isActive(item.link) ? "text-drdPrimary" : "text-white"
+                isActive(item.link)
+                  ? "text-drdPrimary font-bold"
+                  : "text-drd-green"
               } cursor-pointer hover:text-drdPrimary`}
             >
               {item.label}
@@ -108,10 +110,14 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
         <Popover content={profileContent} trigger="click">
           <Avatar src={url} style={{ cursor: "pointer" }} />
         </Popover>
-        <Button type="primary" icon={<UserOutlined />}>
-          Login
-        </Button>
-        <Button icon={<EditOutlined />}>Register</Button>
+        <Link href="/auth/login">
+          <Button type="primary" icon={<UserOutlined />}>
+            Login
+          </Button>
+        </Link>
+        <Link href="/auth/register">
+          <Button icon={<EditOutlined />}>Register</Button>
+        </Link>
       </div>
     </Flex>
   );

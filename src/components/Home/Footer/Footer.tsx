@@ -13,7 +13,7 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
   return (
     <>
-      <div className="py-20 bg-[#6D6D6D] text-[#DFDFDF]">
+      <div className="py-20 bg-drd-light-green text-drd-green">
         <RootContainer>
           <div className="flex  justify-between">
             <div>
@@ -101,9 +101,9 @@ const Footer = () => {
           </div>
         </RootContainer>
       </div>
-      <div className="bg-black">
+      <div className="bg-drd-light-yellow">
         <RootContainer>
-          <div className="flex justify-center gap-4 items-center  py-8 text-center text-[#DFDFDF]">
+          <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-green">
             <p>© 2021 Dream Destinations. All Rights Reserved</p>
             <p>Privacy Policy</p>
           </div>
