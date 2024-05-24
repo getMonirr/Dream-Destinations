@@ -1,7 +1,13 @@
 import staterBgImage from "@/asset/images/pages/starter-bg-image.jpg";
 import { ReactNode } from "react";
 
-const PageStarter = ({ children }: { children: ReactNode }) => {
+const PageStarter = ({
+  children,
+  name,
+}: {
+  children?: ReactNode;
+  name: string;
+}) => {
   return (
     <div
       style={{
@@ -20,7 +26,7 @@ const PageStarter = ({ children }: { children: ReactNode }) => {
       ></div>
       <div className="z-30">
         <h1 className="text-4xl font-bold text-center text-drd-light-yellow">
-          Travels
+          {name}
         </h1>
         <div>{children}</div>
       </div>
