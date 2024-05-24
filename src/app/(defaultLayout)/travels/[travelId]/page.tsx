@@ -17,7 +17,20 @@ const TravelRequest = dynamic(
   { ssr: false }
 );
 
-const TravelDetailsPage = () => {
+interface ITravelDetailsPageProps {
+  params: {
+    travelId: string;
+  };
+}
+
+const TravelDetailsPage = async ({ params }: ITravelDetailsPageProps) => {
+  const { travelId } = params;
+  console.log(travelId);
+
+  // const travelData = await getServerSideData(
+  //   `${config.apiUrl}/trips/${travelId}`
+  // );
+
   return (
     <div className="pb-20">
       <PageStarter name="Travel Details page"></PageStarter>

@@ -9,7 +9,7 @@ import { Divider } from "antd";
 const TravelsPage = () => {
   return (
     <div className="z-20">
-      <PageStarter>
+      <PageStarter name="All Travels">
         <SearchBox />
       </PageStarter>
       <div className="pt-20 pb-10">
@@ -17,7 +17,7 @@ const TravelsPage = () => {
           <DrdSection name="View Our Travel" />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
             {Array.from({ length: 10 }).map((_, index) => (
-              <SingleTravelCard key={index} />
+              <SingleTravelCard key={index} travel={{}} />
             ))}
           </div>
         </RootContainer>
