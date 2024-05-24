@@ -14,7 +14,7 @@ const DrdInput = ({ type, name, label, placeholder }: TInputProps) => {
     <div className="w-full mb-2 md:mb-5">
       <Controller
         name={name}
-        render={({ field }) => (
+        render={({ field, fieldState: { error } }) => (
           <FormItem label={label}>
             <Input
               {...field}
@@ -23,6 +23,7 @@ const DrdInput = ({ type, name, label, placeholder }: TInputProps) => {
               size="large"
               placeholder={placeholder}
             />
+            {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>
         )}
       />

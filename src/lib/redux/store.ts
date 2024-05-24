@@ -44,20 +44,20 @@ const persistedReducer = persistReducer(authPersistConfig, authReducers);
 
 // root reducer
 const rootReducer = combineReducers({
+  [baseApi.reducerPath]: baseApi.reducer,
   auth: persistedReducer,
 });
 
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
-
     // Add the api middleware
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }).concat(baseApi.middleware as any),
+      }).concat(baseApi.middleware),
   });
 };
 

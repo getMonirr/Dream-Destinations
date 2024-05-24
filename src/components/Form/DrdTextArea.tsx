@@ -13,7 +13,7 @@ const DrdTextArea = ({ name, label, placeholder }: TInputProps) => {
     <div className="w-full mb-2 md:mb-5">
       <Controller
         name={name}
-        render={({ field }) => (
+        render={({ field, fieldState: { error } }) => (
           <FormItem label={label}>
             <TextArea
               {...field}
@@ -22,6 +22,7 @@ const DrdTextArea = ({ name, label, placeholder }: TInputProps) => {
               size="large"
               placeholder={placeholder}
             />
+            {error && <span className="text-red-500">{error.message}</span>}
           </FormItem>
         )}
       />

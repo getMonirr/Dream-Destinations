@@ -12,11 +12,12 @@ const DrdCheckBox = ({ name, label }: TInputProps) => {
     <div className="w-full mb-2 md:mb-5">
       <Controller
         name={name}
-        render={({ field }) => (
+        render={({ field, fieldState: { error } }) => (
           <FormItem>
             <Checkbox {...field} id={name}>
               {label}
             </Checkbox>
+            {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>
         )}
       />

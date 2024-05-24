@@ -2,6 +2,8 @@
 
 import { ConfigProvider } from "antd";
 import { ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import StoreProvider from "./Store-Provider";
 
 const AllProviders = ({ children }: { children: ReactNode }) => {
@@ -34,6 +36,7 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
           }}
         >
           {children}
+          <ToastContainer />
         </ConfigProvider>
       </StoreProvider>
     </>

@@ -7,11 +7,12 @@ import type {
 import { config } from "@/config";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
+import { appTags } from "./tag";
 
 // Create a baseQuery with the baseUrl and credentials
 const baseQuery = fetchBaseQuery({
   baseUrl: `${config.apiUrl}`,
-  credentials: "same-origin",
+  credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
     if (token) {
@@ -58,6 +59,7 @@ const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryModifiedForValidationError,
   endpoints: () => ({}),
+  tagTypes: appTags,
 });
 
 export default baseApi;
