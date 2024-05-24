@@ -1,3 +1,4 @@
+import Footer from "./Footer/Footer";
 import HeroSection from "./Hero/HeroSection";
 import Navbar from "./Navbar/Navbar";
 import FeaturedDestination from "./Travel/FeaturedDestination";
@@ -10,6 +11,7 @@ const HomePage = () => {
       <HeroSection />
       <TravelSection />
       <FeaturedDestination />
+      <Footer />
     </div>
   );
 };
