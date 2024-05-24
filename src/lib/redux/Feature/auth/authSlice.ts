@@ -1,7 +1,13 @@
+import { IUser } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
-const initialState = {
+interface IAuthState {
+  user: IUser | null;
+  token: string | null;
+}
+
+const initialState: IAuthState = {
   user: null,
   token: null,
 };

@@ -22,7 +22,7 @@ const DrdTextArea = ({ name, label, placeholder }: TInputProps) => {
               size="large"
               placeholder={placeholder}
             />
-            {error && <span className="text-red-500">{error.message}</span>}
+            {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>
         )}
       />

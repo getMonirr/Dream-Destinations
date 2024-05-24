@@ -4,14 +4,78 @@ import loginBg from "@/asset/images/auth/login-img.jpg";
 import DrdForm from "@/components/Form/DrDForm";
 import DrdInput from "@/components/Form/DrdInput";
 import DrdPassInput from "@/components/Form/DrdPassInput";
+import {
+  useLoginMutation,
+  useRegisterMutation,
+} from "@/lib/redux/Feature/auth/authApi";
+import { setUser } from "@/lib/redux/Feature/auth/authSlice";
+import { useAppDispatch } from "@/lib/redux/hooks";
+import { setTokenInCookie } from "@/utils/helper";
+import { registerValidationSchema } from "@/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FieldValues } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
-  const handleRegister = (data: FieldValues) => {
+  const [userRegistration, registrationStatus] = useRegisterMutation();
+  const [userLogin, loginStatus] = useLoginMutation();
+
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  const handleRegister = async (data: FieldValues) => {
     console.log({ data });
+
+    const sendableData = {
+      name: data.userName,
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const registerResponse = await userRegistration(sendableData).unwrap();
+
+      if (registerResponse?.success) {
+        const toastId = toast.success(
+          "Registration Successful and Login in progress...",
+          {
+            autoClose: 5000,
+          }
+        );
+
+        // auto Login after registration
+        const loginResponse = await userLogin({
+          email: data.email,
+          password: data.password,
+        }).unwrap();
+
+        if (loginResponse?.success) {
+          dispatch(
+            setUser({
+              user: loginResponse.data,
+              token: loginResponse.data.token,
+            })
+          );
+
+          // set token in cookie
+          setTokenInCookie("authToken", loginResponse.data.token);
+          toast.dismiss(toastId);
+
+          toast.success("Login Successful");
+          router.push("/dashboard");
+        } else {
+          toast.error("Login Failed");
+          router.push("/auth/login");
+        }
+      }
+    } catch (error: any) {
+      console.log({ error });
+      toast.error(error?.data?.message || "Registration Failed");
+    }
   };
 
   return (
@@ -34,7 +98,10 @@ const RegisterPage = () => {
             </h1>
             <p className="text-center">Register to catch your Dream</p>
           </div>
-          <DrdForm onSubmit={handleRegister}>
+          <DrdForm
+            onSubmit={handleRegister}
+            resolver={zodResolver(registerValidationSchema)}
+          >
             <div className="flex items-center  md:gap-4 flex-col md:flex-row ">
               <DrdInput
                 label="User Name"
@@ -63,7 +130,14 @@ const RegisterPage = () => {
                 placeholder="Enter your confirm password"
               />
             </div>
-            <Button htmlType="submit" type="primary" block size="large">
+            <Button
+              htmlType="submit"
+              type="primary"
+              block
+              size="large"
+              loading={registrationStatus?.isLoading}
+              disabled={registrationStatus?.isLoading}
+            >
               Register
             </Button>
             <div>

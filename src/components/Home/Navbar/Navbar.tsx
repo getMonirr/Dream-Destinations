@@ -1,45 +1,17 @@
 "use client";
 
 import RootContainer from "@/components/shared/RootContainer";
-import {
-  EditOutlined,
-  LogoutOutlined,
-  MenuOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Avatar, Button, Drawer, Flex, Popover } from "antd";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
+import { useAppSelector } from "@/lib/redux/hooks";
+import { MenuOutlined } from "@ant-design/icons";
+import { Button, Drawer } from "antd";
 import { useState } from "react";
-
-const menuItems = [
-  {
-    label: "Home",
-    key: "home",
-    link: "/",
-  },
-  {
-    label: "About Us",
-    key: "about",
-    link: "/about",
-  },
-];
-
-const url =
-  "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg";
-
-const profileContent = (
-  <div className="flex items-center justify-center gap-4 flex-col">
-    <Button type="primary" icon={<UserOutlined />}>
-      Profile
-    </Button>
-    <Button type="primary" icon={<LogoutOutlined />}>
-      Logout
-    </Button>
-  </div>
-);
+import AppNavbar from "./AppNavBar";
+import UserProfile from "./UserProfile";
 
 const Navbar = () => {
+  const user = useAppSelector(selectUser);
+
   const [open, setOpen] = useState(false);
   return (
     <div className="bg-drd-light-green h-[80px] flex items-center justify-center px-4">
@@ -56,9 +28,7 @@ const Navbar = () => {
           <div>
             <h1>Dream Destinations</h1>
           </div>
-          <Popover content={profileContent} trigger="click">
-            <Avatar src={url} style={{ cursor: "pointer" }} />
-          </Popover>
+          {user && <UserProfile />}
         </div>
         <Drawer
           open={open}
@@ -71,55 +41,6 @@ const Navbar = () => {
         </Drawer>
       </RootContainer>
     </div>
-  );
-};
-
-const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
-  const pathname = usePathname();
-  const isActive = (link: string) => {
-    return pathname === link;
-  };
-
-  return (
-    <Flex
-      gap="middle"
-      justify="space-between"
-      align="center"
-      vertical={isVertical}
-      className="h-[80px]"
-    >
-      <div>
-        <h1>Logo</h1>
-      </div>
-      <ul className="flex items-center justify-center gap-4">
-        {menuItems.map((item) => (
-          <Link href={item.link} key={item.key}>
-            <p
-              className={`${
-                isActive(item.link)
-                  ? "text-drdPrimary font-bold"
-                  : "text-drd-green"
-              } cursor-pointer hover:text-drdPrimary`}
-            >
-              {item.label}
-            </p>
-          </Link>
-        ))}
-      </ul>
-      <div className="flex items-center justify-center gap-4">
-        <Popover content={profileContent} trigger="click">
-          <Avatar src={url} style={{ cursor: "pointer" }} />
-        </Popover>
-        <Link href="/auth/login">
-          <Button type="primary" icon={<UserOutlined />}>
-            Login
-          </Button>
-        </Link>
-        <Link href="/auth/register">
-          <Button icon={<EditOutlined />}>Register</Button>
-        </Link>
-      </div>
-    </Flex>
   );
 };
 
