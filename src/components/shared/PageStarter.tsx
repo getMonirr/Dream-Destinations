@@ -1,4 +1,4 @@
-import staterBgImage from "@/asset/images/auth/login-img.jpg";
+import staterBgImage from "@/asset/images/pages/starter-bg-image.jpg";
 import { ReactNode } from "react";
 
 const PageStarter = ({ children }: { children: ReactNode }) => {
@@ -10,9 +10,14 @@ const PageStarter = ({ children }: { children: ReactNode }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className={` relative flex justify-center items-center  text-drd-green min-h-[250px]`}
+      className={` relative flex justify-center items-center  text-drd-green min-h-[500px]`}
     >
-      <div className="absolute left-0 right-0 bg-drd-dark-green opacity-80  w-full h-full"></div>
+      <div
+        style={{
+          backgroundColor: "rgba(0,0,0,0.5)",
+        }}
+        className="absolute left-0 right-0 w-full h-full"
+      ></div>
       <div className="z-30">
         <h1 className="text-4xl font-bold text-center text-drd-light-yellow">
           Travels

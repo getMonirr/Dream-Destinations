@@ -1,3 +1,4 @@
+import footerBg from "@/asset/images/pages/footer-bg.png";
 import RootContainer from "@/components/shared/RootContainer";
 import {
   InstagramOutlined,
@@ -13,7 +14,15 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
   return (
     <>
-      <div className="py-20 bg-drd-light-green text-drd-green">
+      <div
+        style={{
+          backgroundImage: `url('${footerBg.src}')`,
+          backgroundPosition: "center bottom",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="py-20 pt-36 bg-drd-light-green text-drd-green"
+      >
         <RootContainer>
           <div className="flex  justify-between">
             <div>
@@ -101,9 +110,9 @@ const Footer = () => {
           </div>
         </RootContainer>
       </div>
-      <div className="bg-drd-light-yellow">
+      <div className="bg-[#00294D]">
         <RootContainer>
-          <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-green">
+          <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-light-yellow">
             <p>© 2021 Dream Destinations. All Rights Reserved</p>
             <p>Privacy Policy</p>
           </div>
