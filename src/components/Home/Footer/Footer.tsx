@@ -7,7 +7,8 @@ import {
 import { Button, Tooltip } from "antd";
 import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -26,24 +27,24 @@ const Footer = () => {
               </p>
             </div>
             <div>
-              <h1>Contact Information</h1>
+              <h1 className="font-bold text-lg">Contact Information</h1>
               <div className="space-y-3 pt-5 ">
                 <p className="flex items-center gap-2">
                   <FaLocationDot color="black" />
-                  <span>Location</span>
+                  <span>34,5d,Dream Destination</span>
                 </p>
                 <p className="flex items-center gap-2">
-                  <FaLocationDot color="black" />
-                  <span>Location</span>
+                  <MdEmail color="black" />
+                  <span>info@dream-destination.com</span>
                 </p>
                 <p className="flex items-center gap-2">
-                  <FaLocationDot color="black" />
-                  <span>Location</span>
+                  <FaPhone color="black" />
+                  <span>+880 1771900906</span>
                 </p>
               </div>
             </div>
             <div>
-              <h1>Quick Link</h1>
+              <h1 className="font-bold text-lg">Quick Link</h1>
               <ul className="space-y-3 pt-5 ">
                 <li>
                   <Link href="/">Home</Link>
@@ -57,10 +58,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h1>Follow Us</h1>
+              <h1 className="font-bold text-lg">Follow Us</h1>
               <ul className="flex items-center gap-4 pt-5">
                 <li>
-                  <Tooltip title="search">
+                  <Tooltip title="Facebook">
                     <Button
                       type="primary"
                       shape="circle"
@@ -69,7 +70,7 @@ const Footer = () => {
                   </Tooltip>
                 </li>
                 <li>
-                  <Tooltip title="search">
+                  <Tooltip title="Instagram">
                     <Button
                       type="primary"
                       shape="circle"
@@ -78,7 +79,7 @@ const Footer = () => {
                   </Tooltip>
                 </li>
                 <li>
-                  <Tooltip title="search">
+                  <Tooltip title="Youtube">
                     <Button
                       type="primary"
                       shape="circle"
@@ -87,7 +88,7 @@ const Footer = () => {
                   </Tooltip>
                 </li>
                 <li>
-                  <Tooltip title="search">
+                  <Tooltip title="Linkedin">
                     <Button
                       type="primary"
                       shape="circle"
