@@ -8,6 +8,7 @@ const SingleTravelCard = () => {
     <div>
       <Card
         style={{ width: "100%" }}
+        hoverable
         cover={
           <Image
             alt="example"

@@ -1,5 +1,6 @@
 import HeroSection from "./Hero/HeroSection";
 import Navbar from "./Navbar/Navbar";
+import FeaturedDestination from "./Travel/FeaturedDestination";
 import TravelSection from "./Travel/TravelSection";
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Navbar />
       <HeroSection />
       <TravelSection />
+      <FeaturedDestination />
     </div>
   );
 };
