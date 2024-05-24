@@ -15,7 +15,14 @@ const config: Config = {
       },
       colors: {
         drdBg: "#15151F",
-        drdPrimary: "#FDE723",
+        // drdPrimary: "#FDE723", // yellow
+        drdPrimary: "#3A643B", // green
+        "drd-green": "#3A643B",
+        "drd-yellow": "#FFD700",
+        "drd-light-yellow": "#FFF7E2",
+        "drd-light-green": "#E6F4E0",
+        "drd-dark-green": "#2E4D2B",
+        "drd-dark-yellow": "#B5A642",
       },
     },
   },

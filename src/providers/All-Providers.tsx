@@ -13,8 +13,9 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
             // algorithm: [theme.darkAlgorithm],
             token: {
               // Seed Token
-              colorPrimary: "#C80000",
-              // colorPrimary: "#FDE723",
+              // colorPrimary: "#C80000", // red
+              colorPrimary: "#3A643B", // green
+              // colorPrimary: "#FDE723", // yellow
 
               // colorTextSecondary: "#FFFFFF",
               // colorFillSecondary: "#FFFFFF",
