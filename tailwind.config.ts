@@ -12,6 +12,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        // "drd-page-starter-bg": "url('./asset/images/auth/login-img.jpg')",
       },
       colors: {
         drdBg: "#15151F",

@@ -4,7 +4,7 @@ import RootContainer from "./RootContainer";
 interface DrdSectionProps {
   children?: ReactNode;
   name: string;
-  description: string;
+  description?: string;
 }
 
 const DrdSection = ({ children, name, description }: DrdSectionProps) => {
