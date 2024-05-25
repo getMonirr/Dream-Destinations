@@ -3,6 +3,7 @@
 import { logout, selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { IUser } from "@/types";
+import { removeTokenFromCookie } from "@/utils/helper";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Popover } from "antd";
 import Link from "next/link";
@@ -16,6 +17,7 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    removeTokenFromCookie("authToken");
   };
 
   const profileContent = (

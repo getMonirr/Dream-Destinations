@@ -46,10 +46,10 @@ const LoginPage = () => {
         );
 
         // set token in cookie
-        setTokenInCookie("authToken", loginResponse.data.token);
+        setTokenInCookie(loginResponse.data.token, "/dashboard");
 
         // redirect to dashboard
-        router.push("/dashboard");
+        // router.push("/dashboard");
 
         toast.success("Login Successful");
       }

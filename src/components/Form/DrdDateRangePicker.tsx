@@ -25,7 +25,14 @@ const DrdDateRangePicker = ({
         name={name}
         render={({ field, fieldState: { error } }) => (
           <FormItem label={label} required={required}>
-            <DatePicker.RangePicker
+            {/* <DatePicker.RangePicker
+              {...field}
+              id={name}
+              size="large"
+              disabled={disabled}
+              prefix={prefix}
+            /> */}
+            <DatePicker
               {...field}
               id={name}
               size="large"

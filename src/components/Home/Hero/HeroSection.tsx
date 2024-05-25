@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 import HeroBg from "@/asset/images/home/hero.jpg";
+import { ShareAltOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import Link from "next/link";
 import SearchBox from "./SearchBox";
 
 const HeroSection = () => {
@@ -19,9 +21,20 @@ const HeroSection = () => {
         }}
       />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-[800px]">
-        <h1 className="text-5xl font-bold">Dream Destinations</h1>
-        <p className="text-xl">Your dream vacation is just a click away</p>
-        <Button size="large">Explore</Button>
+        <h1 className="text-5xl font-bold ">Dream Destinations</h1>
+        <p className="text-xl py-5">Your dream vacation is just a click away</p>
+        <Link href="/dashboard/user/post-travel">
+          <Button
+            size="large"
+            className="my-10 w-80 font-bold"
+            icon={<ShareAltOutlined />}
+            style={{
+              fontWeight: "bold",
+            }}
+          >
+            Share Your Trip
+          </Button>
+        </Link>
 
         {/* search box  */}
         <SearchBox />

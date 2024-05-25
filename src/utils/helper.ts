@@ -1,14 +1,18 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export const setTokenInCookie = (key: string, token: string) => {
+export const setTokenInCookie = (token: string, options: string) => {
   cookies().set({
-    name: key,
+    name: "authToken",
     value: token,
     httpOnly: true,
     secure: true,
   });
+  if (options) {
+    redirect(options);
+  }
 };
 
 // remove token from cookie
