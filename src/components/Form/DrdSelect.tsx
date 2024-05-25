@@ -1,25 +1,26 @@
-import { Input } from "antd";
+import { Select } from "antd";
 import FormItem from "antd/es/form/FormItem";
+import { SelectProps } from "antd/es/select";
 import { Controller } from "react-hook-form";
 
 type TInputProps = {
-  type: string;
   name: string;
   label?: string;
   placeholder?: string;
   disabled?: boolean;
   required?: boolean;
   prefix?: any;
+  options: SelectProps[];
 };
 
-const DrdInput = ({
-  type,
+const DrdSelect = ({
   name,
   label,
   placeholder,
   disabled,
   required,
   prefix,
+  options,
 }: TInputProps) => {
   return (
     <div className="w-full mb-2 md:mb-5">
@@ -27,14 +28,13 @@ const DrdInput = ({
         name={name}
         render={({ field, fieldState: { error } }) => (
           <FormItem label={label} required={required}>
-            <Input
+            <Select
               {...field}
-              type={type}
-              id={name}
               size="large"
+              style={{ minWidth: 150 }}
+              className="w-full md:w-auto"
+              options={options}
               placeholder={placeholder}
-              disabled={disabled}
-              prefix={prefix}
             />
             {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>
@@ -44,4 +44,4 @@ const DrdInput = ({
   );
 };
 
-export default DrdInput;
+export default DrdSelect;

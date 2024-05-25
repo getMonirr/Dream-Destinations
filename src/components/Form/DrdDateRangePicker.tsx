@@ -1,9 +1,8 @@
-import { Input } from "antd";
+import { DatePicker } from "antd";
 import FormItem from "antd/es/form/FormItem";
 import { Controller } from "react-hook-form";
 
 type TInputProps = {
-  type: string;
   name: string;
   label?: string;
   placeholder?: string;
@@ -12,8 +11,7 @@ type TInputProps = {
   prefix?: any;
 };
 
-const DrdInput = ({
-  type,
+const DrdDateRangePicker = ({
   name,
   label,
   placeholder,
@@ -27,12 +25,10 @@ const DrdInput = ({
         name={name}
         render={({ field, fieldState: { error } }) => (
           <FormItem label={label} required={required}>
-            <Input
+            <DatePicker.RangePicker
               {...field}
-              type={type}
               id={name}
               size="large"
-              placeholder={placeholder}
               disabled={disabled}
               prefix={prefix}
             />
@@ -44,4 +40,4 @@ const DrdInput = ({
   );
 };
 
-export default DrdInput;
+export default DrdDateRangePicker;
