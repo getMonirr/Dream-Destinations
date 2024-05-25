@@ -1,3 +1,4 @@
+import { paginationPerPage } from "@/constant/paginationControle";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
@@ -13,10 +14,11 @@ interface IInitialState {
 
 const initialState: IInitialState = {
   destination: "",
-  startDates: new Date(),
+  // startDates: new Date(),
+  startDates: "",
   endDates: "",
   searchTerm: "",
-  limit: 10,
+  limit: paginationPerPage,
   page: 1,
   type: null,
 };

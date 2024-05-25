@@ -20,10 +20,10 @@ const tripApi = baseApi.injectEndpoints({
           params.append("destination", destination);
         }
         if (startDates) {
-          params.append("startDates", startDates);
+          params.append("startDate", startDates);
         }
         if (endDates) {
-          params.append("endDates", endDates);
+          params.append("endDate", endDates);
         }
         if (searchTerm) {
           params.append("searchTerm", searchTerm);

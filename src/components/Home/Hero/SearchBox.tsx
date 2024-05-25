@@ -6,6 +6,7 @@ import DrdSelect from "@/components/Form/DrdSelect";
 import {
   selectTripQueries,
   setDestination,
+  setSearchTerm,
   setStartDates,
   setType,
 } from "@/lib/redux/Feature/trip/tripSlice";
@@ -69,6 +70,10 @@ const SearchBox = () => {
       dispatch(setStartDates(formattedDate));
     }
 
+    if (data?.searchTerm) {
+      dispatch(setSearchTerm(data.searchTerm));
+    }
+
     if (pathname !== "/travels") {
       router.push("/travels");
     }
@@ -105,6 +110,16 @@ const SearchBox = () => {
                 label="Travel Types"
                 placeholder="Select Type"
               />
+            </div>
+            <div className="w-full md:w-auto">
+              {pathname === "/travels" && (
+                <DrdInput
+                  name="searchTerm"
+                  label="Search"
+                  type="text"
+                  placeholder="e.g fun"
+                />
+              )}
             </div>
           </div>
           <Button

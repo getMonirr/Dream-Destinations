@@ -38,6 +38,7 @@ const DrdDateRangePicker = ({
               size="large"
               disabled={disabled}
               prefix={prefix}
+              style={{ minWidth: "150px", maxWidth: "100%", width: "100%" }}
             />
             {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>
