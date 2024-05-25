@@ -1,8 +1,10 @@
 "use client";
 
+import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
+import { useAppSelector } from "@/lib/redux/hooks";
 import { generateMenuItems } from "@/utils/generateSidebarMenu";
 import { Layout, Menu, theme } from "antd";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -14,7 +16,12 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
 
   const router = useRouter();
 
-  const role = "user";
+  const user = useAppSelector(selectUser);
+  const pathname = usePathname();
+
+  // console.log({ user, pathname });
+
+  const role = user?.role?.toLowerCase();
 
   return (
     <Layout>
@@ -34,7 +41,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             <Menu
               theme="dark"
               mode="inline"
-              defaultSelectedKeys={["/profile"]}
+              defaultSelectedKeys={[pathname.split("/")[2]]}
               items={generateMenuItems(role)}
               onSelect={({ item, key }) =>
                 router.push(`/dashboard/${role}/${key}`)
@@ -47,7 +54,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         </div>
       </Sider>
       <Layout className="lg:ml-[200px]">
-        <Header className="sticky top-0 ">
+        <Header className="">
           <h1 className="text-red-500">Header</h1>
         </Header>
         <Content style={{ margin: "24px 16px 0" }}>

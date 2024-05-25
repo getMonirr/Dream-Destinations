@@ -5,7 +5,7 @@ import {
 } from "@/components/Dashboard/constant";
 
 /// generate menu items by user role
-export const generateMenuItems = (role: string) => {
+export const generateMenuItems = (role: string | undefined) => {
   if (role === "admin") {
     return [...commonMenuItems, ...adminMenuItems];
   }

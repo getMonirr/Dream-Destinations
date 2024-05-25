@@ -6,15 +6,34 @@ export interface IUser {
 }
 
 export interface ITrip {
-  id: string;
-  userId: string;
-  destination: string;
-  startDate: string;
-  endDate: string;
-  budget: number;
-  description?: string;
-  image?: string;
   activities: string[];
+  budget: number;
   createdAt: string;
+  description: string | null;
+  destination: string;
+  endDate: string;
+  id: string;
+  image: string | null;
+  photos: string[];
+  startDate: string;
+  type: string;
   updatedAt: string;
+  userId: string;
+}
+
+export interface ITravelRequestHistory {
+  createdAt: string;
+  id: string;
+  status: string;
+  trip: ITrip;
+  tripId: string;
+  updatedAt: string;
+  userId: string;
+}
+
+// trip status
+export interface ITripStatus {
+  PENDING: string;
+  APPROVED: string;
+  REJECTED: string;
 }

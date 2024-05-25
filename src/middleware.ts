@@ -22,6 +22,8 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("authToken")?.value;
   const { pathname } = request.nextUrl;
 
+  console.log({ token, pathname });
+
   // if token is not present redirect to login page
   if (!token) {
     if (authRoutes.includes(pathname)) {
