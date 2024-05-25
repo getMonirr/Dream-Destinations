@@ -125,8 +125,7 @@ const TravelRequestForm = ({ travelId }: { travelId: string }) => {
         <div className="text-red-500 text-center flex items-center justify-center h-full">
           <div>
             <h2>
-              You can&apos;t send travel request to yourself. Please try with
-              other travel buddy.
+              Already sent travel request, Please try with other travel buddy.
             </h2>
             <Link href="/dashboard/user/travel-request-history">
               <Button type="primary" size="large" block className="mt-4">

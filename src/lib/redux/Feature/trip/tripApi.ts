@@ -95,6 +95,7 @@ const tripApi = baseApi.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: [tags.TRAVEL],
     }),
 
     // check travel buddy request
@@ -103,6 +104,7 @@ const tripApi = baseApi.injectEndpoints({
         url: `/travel-buddies/${id}/check`,
         method: "GET",
       }),
+      providesTags: [tags.TRAVEL],
     }),
   }),
 });
