@@ -12,6 +12,8 @@ export interface ITrip {
   startDate: string;
   endDate: string;
   budget: number;
+  description?: string;
+  image?: string;
   activities: string[];
   createdAt: string;
   updatedAt: string;

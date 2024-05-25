@@ -1,7 +1,9 @@
+import { ITrip } from "@/types";
 import { CalendarOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
+import moment from "moment";
 
-const SingleTravelTextDetails = () => {
+const SingleTravelTextDetails = ({ travel }: { travel: ITrip }) => {
   return (
     <div className="border h-full">
       <div className="bg-drd-light-yellow p-8 text-drd-green">
@@ -17,8 +19,8 @@ const SingleTravelTextDetails = () => {
             </p>
           </div>
           <div className="text-xl">
-            <p>2021-09-01</p>
-            <p>2021-09-01</p>
+            <p>{moment(travel.startDate).format("ll")}</p>
+            <p>{moment(travel.endDate).format("ll")}</p>
           </div>
         </div>
       </div>
@@ -27,7 +29,7 @@ const SingleTravelTextDetails = () => {
           <CalendarOutlined />
           Destination
         </p>
-        <p className="text-xl">Destination One</p>
+        <p className="text-xl">{travel.destination}</p>
       </div>
 
       <Divider />
@@ -37,10 +39,7 @@ const SingleTravelTextDetails = () => {
           Description
         </p>
         <p className="text-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam magni,
-          aut aperiam consectetur ut vitae harum dicta fugiat fugit repellat
-          porro quod omnis voluptates a iste, temporibus, necessitatibus hic.
-          Eius?
+          {travel?.description || "No description available"}
         </p>
       </div>
     </div>

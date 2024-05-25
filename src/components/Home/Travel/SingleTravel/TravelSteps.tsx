@@ -1,47 +1,40 @@
 "use client";
 
 import DrdSection from "@/components/shared/DrdSection";
+import { ITrip } from "@/types";
 import { Steps } from "antd";
 import { useState } from "react";
 
-const TravelSteps = () => {
+const TravelSteps = ({ travel }: { travel: ITrip }) => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {
-    console.log("onChange:", value);
     setCurrent(value);
   };
-  const description = "This is a description.";
+  const description = "Details about the travel steps";
+
+  const items = travel?.activities?.map((travel, index) => ({
+    title: `Step ${index + 1}`,
+    description: travel,
+  }));
+
   return (
-    <div>
+    <div className="">
       <DrdSection name="Travel steps" />
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 divide-x-2 border p-8">
         <Steps
           current={current}
           onChange={onChange}
           direction="vertical"
-          items={[
-            {
-              title: "Step 1",
-              description,
-            },
-            {
-              title: "Step 2",
-              description,
-            },
-            {
-              title: "Step 3",
-              description,
-            },
-          ]}
+          items={items}
         />
-        <div>
+        <div className="pl-8">
           <p className="text-xl">
-            <h1>Steps: {current}</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            magni, aut aperiam consectetur ut vitae harum dicta fugiat fugit
-            repellat porro quod omnis voluptates a iste, temporibus,
-            necessitatibus hic. Eius?
+            <h1 className="font-bold">Steps: {current + 1}</h1>
+            <p className="mt-5">
+              <span>Description: </span>
+              {travel?.activities[current] || "No activities available"}
+            </p>
           </p>
         </div>
       </div>

@@ -11,3 +11,21 @@ export const registerValidationSchema = z
     message: "Password and confirm password should be same",
     path: ["confirmPassword"],
   });
+
+export const requestValidationSchema = z
+  .object({
+    name: z.string(),
+    email: z.string().email(),
+    comment: z
+      .string({
+        required_error: "Comment is required at least 10 characters",
+      })
+      .min(10),
+    agree: z.boolean({
+      required_error: "You must agree to the terms and conditions",
+    }),
+  })
+  .refine((data) => data.agree === true, {
+    message: "You must agree to the terms and conditions",
+    path: ["agree"],
+  });

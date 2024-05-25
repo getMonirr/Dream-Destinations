@@ -5,9 +5,10 @@ import { Controller } from "react-hook-form";
 type TInputProps = {
   name: string;
   label?: string;
+  required?: boolean;
 };
 
-const DrdCheckBox = ({ name, label }: TInputProps) => {
+const DrdCheckBox = ({ name, label, required }: TInputProps) => {
   return (
     <div className="w-full mb-2 md:mb-5">
       <Controller
@@ -15,7 +16,7 @@ const DrdCheckBox = ({ name, label }: TInputProps) => {
         render={({ field, fieldState: { error } }) => (
           <FormItem>
             <Checkbox {...field} id={name}>
-              {label}
+              {required && <span className="text-red-500">*</span>} {label}
             </Checkbox>
             {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>

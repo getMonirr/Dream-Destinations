@@ -44,7 +44,7 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
       <ul className="flex items-center justify-center gap-4">
         {menuItems.map((item) => (
           <Link href={item.link} key={item.key}>
-            <p
+            <li
               className={`${
                 isActive(item.link)
                   ? "text-drdPrimary font-bold"
@@ -52,15 +52,17 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
               } cursor-pointer hover:text-drdPrimary`}
             >
               {item.label}
-            </p>
+            </li>
           </Link>
         ))}
       </ul>
       <div className="flex items-center justify-center gap-4">
         {user ? (
-          <UserProfile />
-        ) : (
           <>
+            <UserProfile />
+          </>
+        ) : (
+          <div>
             <Link href="/auth/login">
               <Button type="primary" icon={<UserOutlined />}>
                 Login
@@ -69,7 +71,7 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
             <Link href="/auth/register">
               <Button icon={<EditOutlined />}>Register</Button>
             </Link>
-          </>
+          </div>
         )}
       </div>
     </Flex>

@@ -6,15 +6,16 @@ type TInputProps = {
   name: string;
   label?: string;
   placeholder?: string;
+  required?: boolean;
 };
 
-const DrdTextArea = ({ name, label, placeholder }: TInputProps) => {
+const DrdTextArea = ({ name, label, placeholder, required }: TInputProps) => {
   return (
     <div className="w-full mb-2 md:mb-5">
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
-          <FormItem label={label}>
+          <FormItem label={label} required={required}>
             <TextArea
               {...field}
               rows={3}
