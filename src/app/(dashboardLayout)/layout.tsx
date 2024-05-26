@@ -41,11 +41,15 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             <Menu
               theme="dark"
               mode="inline"
-              defaultSelectedKeys={[pathname.split("/")[2]]}
+              defaultSelectedKeys={[pathname.split("/")[1]]}
               items={generateMenuItems(role)}
-              onSelect={({ item, key }) =>
-                router.push(`/dashboard/${role}/${key}`)
-              }
+              onSelect={({ item, key }) => {
+                if (key === "/profile" || key === "/change-password") {
+                  router.push(`/dashboard/${key}`);
+                } else {
+                  router.push(`/dashboard/${role}/${key}`);
+                }
+              }}
             />
           </div>
           <div>

@@ -3,6 +3,7 @@ import React from "react";
 import { BsFillSignpostSplitFill } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { MdOutlineModeOfTravel, MdTravelExplore } from "react-icons/md";
+import { TbPasswordUser } from "react-icons/tb";
 
 export const adminMenuItems = [
   {
@@ -29,16 +30,34 @@ export const userMenuItems = [
   {
     key: "/travel-posts",
     icon: React.createElement(BsFillSignpostSplitFill),
-    label: "Travel Posts",
+    label: "Post Travel",
     href: "/travel-posts",
+  },
+  {
+    key: "/my-posted-travel",
+    icon: React.createElement(MdTravelExplore),
+    label: "My Trips",
+    href: "/my-posted-travel",
   },
 ];
 
 export const commonMenuItems = [
   {
+    key: "/dashboard",
+    icon: React.createElement(UserOutlined),
+    label: "Dashboard",
+    href: "/dashboard",
+  },
+  {
     key: "/profile",
     icon: React.createElement(UserOutlined),
     label: "Profile",
     href: "/profile",
+  },
+  {
+    key: "/change-password",
+    icon: React.createElement(TbPasswordUser),
+    label: "Change Password",
+    href: "/change-password",
   },
 ];

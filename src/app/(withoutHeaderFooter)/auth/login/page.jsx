@@ -46,7 +46,7 @@ const LoginPage = () => {
         );
 
         // set token in cookie
-        setTokenInCookie(loginResponse.data.token, "/dashboard");
+        setTokenInCookie(loginResponse.data.token, "/dashboard/profile");
 
         // redirect to dashboard
         // router.push("/dashboard");

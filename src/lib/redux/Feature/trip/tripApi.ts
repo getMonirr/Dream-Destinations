@@ -115,6 +115,15 @@ const tripApi = baseApi.injectEndpoints({
       }),
       providesTags: [tags.TRIP],
     }),
+
+    // get my posted trips/travels
+    getMyPostedTrips: build.query({
+      query: () => ({
+        url: "/trip/my-trips",
+        method: "GET",
+      }),
+      providesTags: [tags.TRIP],
+    }),
   }),
 });
 
@@ -127,4 +136,5 @@ export const {
   useSendTravelBuddyRequestMutation,
   useCheckTravelBuddyRequestQuery,
   useGetMyTravelBuddiesQuery,
+  useGetMyPostedTripsQuery,
 } = tripApi;

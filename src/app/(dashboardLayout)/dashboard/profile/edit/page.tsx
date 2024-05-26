@@ -20,7 +20,6 @@ import { toast } from "react-toastify";
 
 const EditProfilePage = () => {
   const [image, setImage] = useState<any>([]);
-  console.log(image);
 
   // router
   const router = useRouter();
@@ -36,20 +35,16 @@ const EditProfilePage = () => {
   } = useGetProfileQuery(null, { skip: !userInfo?.id });
 
   const user = userProfileData?.data;
-  console.log({ user });
 
   // prepare default value as for current user
   const defaultValues = {
     ...user,
   };
-  console.log({ defaultValues });
 
   // update user profile
   const [updateProfile, updateProfileStatus] = useUpdateProfileMutation();
 
   const handleProfileUpdate = async (values: any) => {
-    console.log(values);
-
     // set previous image if no new image
     values.userProfile.image = user?.userProfile?.image || "";
 
@@ -68,17 +63,6 @@ const EditProfilePage = () => {
 
     // convert age to number
     values.userProfile.age = Number(values.userProfile.age);
-
-    const { userProfile, ...restUserData } = values;
-
-    // prepare data for update
-    const updateDoc = {
-      ...restUserData,
-      profile: {
-        ...userProfile,
-      },
-    };
-    console.log({ updateDoc });
 
     try {
       const updateRes = await updateProfile(values).unwrap();
