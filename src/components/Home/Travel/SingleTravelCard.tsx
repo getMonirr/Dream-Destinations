@@ -20,8 +20,13 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
               image ||
               "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
             }
-            width={100}
-            height={100}
+            width={200}
+            height={200}
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "200px",
+            }}
           />
         }
       >

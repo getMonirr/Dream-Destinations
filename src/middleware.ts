@@ -7,6 +7,8 @@ type Role = keyof typeof roleBasedRoutes;
 
 const commonRoutes = [
   "/dashboard",
+  "/dashboard/profile",
+  "/dashboard/profile/edit",
   "/dashboard/change-password",
   "/travel-request",
 ];
