@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           <div
             style={{
               padding: 24,
-              height: "calc(300vh - 155px)",
+              minHeight: "calc(100vh - 155px)",
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}

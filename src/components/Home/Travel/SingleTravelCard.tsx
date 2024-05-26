@@ -7,7 +7,7 @@ import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 
 const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
-  const { destination, startDate, endDate } = travel;
+  const { destination, startDate, endDate, image } = travel;
   return (
     <div>
       <Card
@@ -16,7 +16,10 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
         cover={
           <Image
             alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            src={
+              image ||
+              "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            }
             width={100}
             height={100}
           />

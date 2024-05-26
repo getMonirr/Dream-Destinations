@@ -10,7 +10,7 @@ type TInputProps = {
 
 const DrdCheckBox = ({ name, label, required }: TInputProps) => {
   return (
-    <div className="w-full mb-2 md:mb-5">
+    <div className="w-full">
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
