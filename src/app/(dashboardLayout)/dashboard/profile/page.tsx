@@ -36,7 +36,7 @@ const Profile = () => {
               </div>
               <div>
                 <Title level={4}>{user?.name}</Title>
-                <Text type="secondary">{user?.email}</Text>
+                <Text type="secondary">{user?.userName}</Text>
               </div>
             </div>
             <div>

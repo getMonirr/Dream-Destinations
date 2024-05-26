@@ -4,7 +4,7 @@ import axios from "axios";
 export const uploadAndGetImageUrl = async (img: any) => {
   let body = new FormData();
   body.set("key", config.imgKey as string);
-  body.append("image", img);
+  body.append("image", img, img?.name || new Date().toISOString());
 
   // const { data: response } = await axios({
   //   method: "post",
