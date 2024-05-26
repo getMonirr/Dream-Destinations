@@ -69,6 +69,17 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
                   router.push(`/dashboard/${role}/${key}`);
                 }
               }}
+              onClick={({ key }) => {
+                if (
+                  key === "/profile" ||
+                  key === "/change-password" ||
+                  key === "/"
+                ) {
+                  router.push(`/dashboard/${key}`);
+                } else {
+                  router.push(`/dashboard/${role}/${key}`);
+                }
+              }}
             />
           </div>
           <div className="w-full mb-5 px-4">
@@ -102,7 +113,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          Dream Destinations ©{new Date().getFullYear()} Created by Dream Team
         </Footer>
       </Layout>
     </Layout>

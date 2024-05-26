@@ -114,7 +114,12 @@ const MyPostedTravelPage = () => {
     <>
       <div>
         <DrdDashboardTitle name="My Posted Travels" />
-        <Table columns={columns} dataSource={data} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ x: 1500, y: 300 }}
+        />
       </div>
     </>
   );

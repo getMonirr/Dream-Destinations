@@ -122,7 +122,12 @@ const TravelRequestHistory = () => {
     <>
       <div>
         <DrdDashboardTitle name="Travel Request History" />
-        <Table columns={columns} dataSource={data} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ x: 1500, y: 500 }}
+        />
       </div>
     </>
   );

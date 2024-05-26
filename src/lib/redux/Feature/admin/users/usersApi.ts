@@ -1,5 +1,5 @@
-import baseApi from "../../API/baseApi";
-import { tags } from "../../API/tag";
+import baseApi from "../../../API/baseApi";
+import { tags } from "../../../API/tag";
 
 const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

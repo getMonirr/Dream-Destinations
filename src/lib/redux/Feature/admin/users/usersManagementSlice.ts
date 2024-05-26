@@ -1,6 +1,6 @@
 import { userPaginationPerPage } from "@/constant/paginationControl";
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
+import { RootState } from "../../../store";
 
 const initialState = {
   page: 1,

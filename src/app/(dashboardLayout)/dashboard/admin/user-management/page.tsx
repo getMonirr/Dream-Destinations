@@ -2,16 +2,16 @@
 
 import DrdDashboardTitle from "@/components/Dashboard/shared/DrdDashboardTitle";
 import DrdPagination from "@/components/Home/Travel/DrdPagination";
-import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import {
   useChangeUserRoleMutation,
   useGetAllUsersQuery,
   useUpdateUserStatusMutation,
-} from "@/lib/redux/Feature/users/usersApi";
+} from "@/lib/redux/Feature/admin/users/usersApi";
 import {
   selectUserManagementPagination,
   setPage,
-} from "@/lib/redux/Feature/users/usersManagementSlice";
+} from "@/lib/redux/Feature/admin/users/usersManagementSlice";
+import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppSelector } from "@/lib/redux/hooks";
 import { IUser, UserRole, UserStatus } from "@/types";
 import type { TableProps } from "antd";
@@ -107,7 +107,7 @@ const UserManagementPage = () => {
       key: "Sl. No.",
       responsive: ["sm"],
       fixed: "left",
-      width: 100,
+      width: 40,
     },
     {
       title: "Name",
@@ -256,10 +256,11 @@ const UserManagementPage = () => {
                     size="small"
                     icon={<RiAdminFill />}
                     className="w-full"
-                    disabled={record.role === "ADMIN"}
+                    disabled={record.role === UserRole.ADMIN}
                     onClick={() => handleRoleChange(record.id, UserRole.ADMIN)}
                     loading={
-                      record.role !== "ADMIN" && changeRoleState.isLoading
+                      record.role !== UserRole.ADMIN &&
+                      changeRoleState.isLoading
                     }
                   >
                     Admin
@@ -268,10 +269,10 @@ const UserManagementPage = () => {
                     size="small"
                     icon={<RiUser2Fill />}
                     className="w-full"
-                    disabled={record.role === "USER"}
+                    disabled={record.role === UserRole.USER}
                     onClick={() => handleRoleChange(record.id, UserRole.USER)}
                     loading={
-                      record.role !== "USER" && changeRoleState.isLoading
+                      record.role !== UserRole.USER && changeRoleState.isLoading
                     }
                   >
                     User
@@ -300,7 +301,12 @@ const UserManagementPage = () => {
     <>
       <div>
         <DrdDashboardTitle name="User Management" />
-        <Table columns={columns} dataSource={data} pagination={false} />
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ x: 1500, y: 300 }}
+        />
         <div className="py-8 flex items-center justify-center">
           <DrdPagination
             metaData={users?.meta}

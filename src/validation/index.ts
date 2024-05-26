@@ -1,3 +1,4 @@
+import { TravelType } from "@/types";
 import dayjs from "dayjs";
 import { z } from "zod";
 
@@ -35,7 +36,7 @@ export const requestValidationSchema = z
 export const postTravelSchema = z
   .object({
     destination: z.string().min(1, "Destination is required"),
-    type: z.enum(["ADVENTURE", "RELAXATION", "CULTURE", "NATURE"]).optional(),
+    type: z.nativeEnum(TravelType),
     budget: z.string().min(1, "Budget must be greater than zero"),
     description: z.string().min(1, "Description is required"),
     startDate: z.preprocess(
@@ -64,3 +65,30 @@ export const postTravelSchema = z
     message: "End date should be greater than or equal to start date",
     path: ["endDate"],
   });
+
+// update travel validation schema
+export const updateTravelSchema = z.object({
+  destination: z.string().min(1, "Destination is required"),
+  type: z.nativeEnum(TravelType),
+  budget: z.string().min(1, "Budget must be greater than zero"),
+  description: z.string().min(1, "Description is required"),
+  startDate: z.preprocess(
+    (arg) => {
+      if (dayjs.isDayjs(arg)) return arg.toDate();
+    },
+    z.date({
+      required_error: "Start date is required",
+    })
+  ),
+  endDate: z.preprocess(
+    (arg) => {
+      if (dayjs.isDayjs(arg)) return arg.toDate();
+    },
+    z.date({
+      required_error: "End date is required",
+    })
+  ),
+  activities: z.array(z.string().min(1, "Activity cannot be empty")).nonempty({
+    message: "At least one activity is required",
+  }),
+});

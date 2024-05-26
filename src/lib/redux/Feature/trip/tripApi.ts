@@ -58,34 +58,16 @@ const tripApi = baseApi.injectEndpoints({
       invalidatesTags: [tags.TRAVEL],
     }),
 
-    // update trip
-    updateTrip: build.mutation({
-      query: ({ id, trip }) => ({
-        url: `trips/${id}`,
-        method: "PUT",
-        body: trip,
-      }),
-
-      invalidatesTags: [tags.TRAVEL],
-    }),
-
-    // delete trip
-    deleteTrip: build.mutation({
-      query: (id) => ({
-        url: `trips/${id}`,
-        method: "DELETE",
-      }),
-
-      invalidatesTags: [tags.TRAVEL],
-    }),
-
     // get trip by id
     getTripById: build.query({
       query: (id) => ({
         url: `trips/${id}`,
         method: "GET",
       }),
-      providesTags: [tags.TRAVEL],
+      // providesTags: [tags.TRAVEL],
+      // providesTags: (result, error, { id }) => [{ type: tags.TRAVEL, id: id }],
+      // when you want to provide tags based on the id, because the id is dynamic
+      providesTags: (result, error, id) => [{ type: tags.TRAVEL, id }],
     }),
 
     // send a travel buddy request
@@ -130,8 +112,6 @@ const tripApi = baseApi.injectEndpoints({
 export const {
   useGetTripQuery,
   useCreateTripMutation,
-  useUpdateTripMutation,
-  useDeleteTripMutation,
   useGetTripByIdQuery,
   useSendTravelBuddyRequestMutation,
   useCheckTravelBuddyRequestQuery,
