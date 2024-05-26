@@ -1,4 +1,4 @@
-import { paginationPerPage } from "@/constant/paginationControle";
+import { travelPaginationPerPage } from "@/constant/paginationControl";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
@@ -18,7 +18,7 @@ const initialState: IInitialState = {
   startDates: "",
   endDates: "",
   searchTerm: "",
-  limit: paginationPerPage,
+  limit: travelPaginationPerPage,
   page: 1,
   type: null,
 };

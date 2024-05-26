@@ -12,6 +12,7 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import baseApi from "./API/baseApi";
 import { authReducers } from "./Feature/auth/authSlice";
 import tripReducer from "./Feature/trip/tripSlice";
+import usersManagementReducer from "./Feature/users/usersManagementSlice";
 
 // create noop storage
 const createNoopStorage = () => {
@@ -48,6 +49,7 @@ const rootReducer = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
   auth: persistedReducer,
   trip: tripReducer,
+  userManagement: usersManagementReducer,
 });
 
 export const makeStore = () => {

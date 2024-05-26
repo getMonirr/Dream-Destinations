@@ -43,7 +43,7 @@ export const userMenuItems = [
 
 export const commonMenuItems = [
   {
-    key: "/dashboard",
+    key: "/",
     icon: React.createElement(UserOutlined),
     label: "Dashboard",
     href: "/dashboard",

@@ -1,27 +1,40 @@
 "use client";
 
-import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
-import { useAppSelector } from "@/lib/redux/hooks";
+import { logout, selectUser } from "@/lib/redux/Feature/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { generateMenuItems } from "@/utils/generateSidebarMenu";
-import { Layout, Menu, theme } from "antd";
+import { removeTokenFromCookie } from "@/utils/helper";
+import { LogoutOutlined } from "@ant-design/icons";
+import { Button, Layout, Menu, theme } from "antd";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
+  // ant theme
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  // next
   const router = useRouter();
-
-  const user = useAppSelector(selectUser);
   const pathname = usePathname();
+
+  // redux
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
 
   // console.log({ user, pathname });
 
   const role = user?.role?.toLowerCase();
+
+  /// Handle Logout
+  const handleLogout = () => {
+    removeTokenFromCookie("authToken");
+    dispatch(logout());
+  };
 
   return (
     <Layout>
@@ -36,7 +49,9 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         <div className="flex justify-between items-center flex-col h-screen">
           <div className="w-full ">
             <div className="demo-logo-vertical">
-              <h1 className="text-drd-light-yellow text-center py-8">logo</h1>
+              <h1 className="text-drd-light-yellow text-center py-8">
+                <Link href="/">Logo</Link>
+              </h1>
             </div>
             <Menu
               theme="dark"
@@ -44,7 +59,11 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
               defaultSelectedKeys={[pathname.split("/")[1]]}
               items={generateMenuItems(role)}
               onSelect={({ item, key }) => {
-                if (key === "/profile" || key === "/change-password") {
+                if (
+                  key === "/profile" ||
+                  key === "/change-password" ||
+                  key === "/"
+                ) {
                   router.push(`/dashboard/${key}`);
                 } else {
                   router.push(`/dashboard/${role}/${key}`);
@@ -52,8 +71,17 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
               }}
             />
           </div>
-          <div>
-            <h1 className="text-drd-light-yellow">Footer</h1>
+          <div className="w-full mb-5 px-4">
+            <Button
+              type="primary"
+              onClick={handleLogout}
+              size="large"
+              block
+              icon={<LogoutOutlined />}
+              iconPosition="end"
+            >
+              Logout
+            </Button>
           </div>
         </div>
       </Sider>

@@ -39,7 +39,7 @@ const UserProfile = () => {
         {user && (
           <>
             <h4 className=" font-bold">{user?.name}</h4>
-            <p className="text-xs">admin</p>
+            <p className="text-xs">@{user?.role}</p>
           </>
         )}
       </div>

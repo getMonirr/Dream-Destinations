@@ -6,8 +6,9 @@ import SingleTravelCard from "@/components/Home/Travel/SingleTravelCard";
 import DrdSection from "@/components/shared/DrdSection";
 import PageStarter from "@/components/shared/PageStarter";
 import RootContainer from "@/components/shared/RootContainer";
+import { travelPaginationPerPage } from "@/constant/paginationControl";
 import { useGetTripQuery } from "@/lib/redux/Feature/trip/tripApi";
-import { selectTripQueries } from "@/lib/redux/Feature/trip/tripSlice";
+import { selectTripQueries, setPage } from "@/lib/redux/Feature/trip/tripSlice";
 import { useAppSelector } from "@/lib/redux/hooks";
 import { ITrip } from "@/types";
 import { Divider } from "antd";
@@ -42,7 +43,11 @@ const TravelsPage = () => {
       </div>
       <Divider />
       <div className="py-8 flex items-center justify-center">
-        <DrdPagination metaData={travels?.meta} />
+        <DrdPagination
+          metaData={travels?.meta}
+          setPage={setPage}
+          paginationPerPage={travelPaginationPerPage}
+        />
       </div>
     </div>
   );

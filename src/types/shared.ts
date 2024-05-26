@@ -51,3 +51,27 @@ export enum TravelType {
   BUSINESS = "BUSINESS",
   OTHER = "OTHER",
 }
+
+// create a type for user
+export interface IUser {
+  name: string;
+  email: string;
+  role: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  status: string;
+  isDeleted: boolean;
+}
+
+// create a user status enum
+export enum UserStatus {
+  ACTIVE = "ACTIVE",
+  DEACTIVATE = "DEACTIVATE",
+}
+
+// create a user role enum
+export enum UserRole {
+  ADMIN = "ADMIN",
+  USER = "USER",
+}

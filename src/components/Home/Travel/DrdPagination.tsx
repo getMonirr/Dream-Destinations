@@ -1,9 +1,8 @@
 "use client";
 
-import { paginationPerPage } from "@/constant/paginationControle";
-import { setPage } from "@/lib/redux/Feature/trip/tripSlice";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Action } from "@reduxjs/toolkit";
 import { Button, Pagination } from "antd";
 
 const itemRender = (_: any, type: string, originalElement: any) => {
@@ -30,14 +29,12 @@ interface IProps {
     limit: number;
     page: number;
   };
+  setPage: (page: number) => Action;
+  paginationPerPage: number;
 }
 
-const DrdPagination = ({ metaData }: IProps) => {
+const DrdPagination = ({ metaData, setPage, paginationPerPage }: IProps) => {
   const dispatch = useAppDispatch();
-
-  const { total, limit, page } = metaData;
-
-  console.log({ metaData });
 
   const handlePagination = (page: number) => {
     console.log(page);
@@ -47,7 +44,7 @@ const DrdPagination = ({ metaData }: IProps) => {
   return (
     <Pagination
       defaultCurrent={1}
-      total={total}
+      total={metaData?.total}
       pageSize={paginationPerPage}
       onChange={handlePagination}
       itemRender={itemRender}
