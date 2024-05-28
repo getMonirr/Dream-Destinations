@@ -13,7 +13,8 @@ const TravelSection = async () => {
   // console.log(travelData);
 
   return (
-    <div className="py-8">
+    // <div className="py-8 bg-[#E9E9E9]">
+    <div className="py-8 bg-drd-light-green">
       <DrdSection
         name="Our Travel"
         description={

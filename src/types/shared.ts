@@ -19,6 +19,13 @@ export interface ITrip {
   type: string;
   updatedAt: string;
   userId: string;
+  user: {
+    name: string;
+    email: string;
+    userProfile: {
+      image: string;
+    };
+  };
 }
 
 export interface ITravelRequestHistory {

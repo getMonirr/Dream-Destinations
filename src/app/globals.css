@@ -16,3 +16,11 @@
   color: #fff !important;
   background-color: #3a643b !important;
 }
+
+/* card  */
+.ant-card {
+  border-radius: 18.28px !important;
+}
+.ant-card-body {
+  padding: 0px !important;
+}
