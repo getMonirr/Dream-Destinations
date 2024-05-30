@@ -27,7 +27,7 @@ const TravelsPage = () => {
       <PageStarter name="All Travels">
         <SearchBox />
       </PageStarter>
-      <div className="pt-20 pb-10">
+      <div className="pt-20 pb-10 bg-drd-light-green">
         <RootContainer>
           <DrdSection name="View Our Travel" />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

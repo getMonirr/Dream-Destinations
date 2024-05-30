@@ -24,3 +24,19 @@
 .ant-card-body {
   padding: 0px !important;
 }
+
+.ant-timeline-item-head {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.ant-menu-title-content {
+  color: #fff !important;
+}
+
+.ant-menu-item-icon {
+  color: #fff !important;
+}
+.ant-menu-item-selected .ant-menu-item-icon {
+  color: #3a643b !important;
+}

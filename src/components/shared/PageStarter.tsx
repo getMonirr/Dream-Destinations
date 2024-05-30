@@ -1,12 +1,15 @@
 import staterBgImage from "@/asset/images/pages/starter-bg-image.jpg";
 import { ReactNode } from "react";
+import { cn } from "./cn";
 
 const PageStarter = ({
   children,
   name,
+  className,
 }: {
   children?: ReactNode;
   name: string;
+  className?: string;
 }) => {
   return (
     <div
@@ -16,7 +19,10 @@ const PageStarter = ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className={` relative flex justify-center items-center  text-drd-green min-h-[500px]`}
+      className={cn(
+        ` relative flex justify-center items-center  text-drd-green min-h-[500px]`,
+        className
+      )}
     >
       <div
         style={{

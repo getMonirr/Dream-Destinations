@@ -199,6 +199,7 @@ const TripManagement = () => {
     <>
       <div>
         <DrdDashboardTitle name="Trip Management" />
+        {/* <PageStarter name="Trip Management" className="min-h-[200px]" /> */}
         <Table
           columns={columns}
           dataSource={data}

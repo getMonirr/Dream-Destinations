@@ -1,5 +1,6 @@
 "use client";
 
+import fallbackImage from "@/asset/images/fallbackImage.jpg";
 import DrdDashboardTitle from "@/components/Dashboard/shared/DrdDashboardTitle";
 import DrdActivitiesInput from "@/components/Form/DrdActivitiesInput";
 import DrdDateRangePicker from "@/components/Form/DrdDateRangePicker";
@@ -163,7 +164,7 @@ const UpdateTravelForm = ({ tripId }: { tripId: string | null }) => {
               <div className="mb-4 flex justify-between gap-4 items-center">
                 <DrdImageUpload setImages={setImages} />
                 <Image
-                  src={defaultData?.image}
+                  src={defaultData?.image || fallbackImage.src}
                   alt="travel image"
                   width={150}
                   height={150}

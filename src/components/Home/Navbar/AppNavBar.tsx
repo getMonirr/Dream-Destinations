@@ -6,6 +6,7 @@ import { EditOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Flex } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import DreamLogo from "./DreamLogo";
 import UserProfile from "./UserProfile";
 
 const menuItems = [
@@ -38,9 +39,7 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
       vertical={isVertical}
       className="h-[80px]"
     >
-      <div>
-        <h1>Logo</h1>
-      </div>
+      <DreamLogo />
       <ul className="flex items-center justify-center gap-4">
         {menuItems.map((item) => (
           <Link href={item.link} key={item.key}>

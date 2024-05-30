@@ -1,7 +1,8 @@
 import Footer from "./Footer/Footer";
 import HeroSection from "./Hero/HeroSection";
 import Header from "./Navbar/Header";
-import TipsAndGuide from "./TipsAndGuide/TipsAndGuide";
+import OurServices from "./OurServices/OurServices";
+import TripsAndGuideTwo from "./TipsAndGuide/TripsAndGuideTwo";
 import FeaturedDestination from "./Travel/FeaturedDestination";
 import TravelSection from "./Travel/TravelSection";
 
@@ -12,9 +13,10 @@ const HomePage = () => {
     <div>
       <Header />
       <HeroSection />
+      <OurServices />
       <TravelSection />
       <FeaturedDestination />
-      <TipsAndGuide />
+      <TripsAndGuideTwo />
       <Footer />
     </div>
   );

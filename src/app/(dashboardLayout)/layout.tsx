@@ -1,5 +1,6 @@
 "use client";
 
+import UserProfile from "@/components/Home/Navbar/UserProfile";
 import { logout, selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { generateMenuItems } from "@/utils/generateSidebarMenu";
@@ -46,7 +47,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           position: "fixed",
         }}
       >
-        <div className="flex justify-between items-center flex-col h-screen">
+        <div className="flex justify-between items-center flex-col h-screen bg-drd-green">
           <div className="w-full ">
             <div className="demo-logo-vertical">
               <h1 className="text-drd-light-yellow text-center py-8">
@@ -54,7 +55,11 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
               </h1>
             </div>
             <Menu
-              theme="dark"
+              // theme="dark"
+              style={{
+                backgroundColor: "transparent",
+                color: "white",
+              }}
               mode="inline"
               defaultSelectedKeys={[pathname.split("/")[1]]}
               items={generateMenuItems(role)}
@@ -84,7 +89,6 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
           </div>
           <div className="w-full mb-5 px-4">
             <Button
-              type="primary"
               onClick={handleLogout}
               size="large"
               block
@@ -97,9 +101,12 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         </div>
       </Sider>
       <Layout className="lg:ml-[200px]">
-        <Header className="">
-          <h1 className="text-red-500">Header</h1>
-        </Header>
+        <div className=" bg-drd-green h-[80px] flex items-center justify-between px-8">
+          <h1 className="text-white text-2xl font-bold">
+            Dream Destination Dashboard
+          </h1>
+          <UserProfile className="text-white" />
+        </div>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{

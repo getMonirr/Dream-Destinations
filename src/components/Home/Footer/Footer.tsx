@@ -10,6 +10,7 @@ import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import DreamLogo from "../Navbar/DreamLogo";
 
 const Footer = () => {
   return (
@@ -27,8 +28,7 @@ const Footer = () => {
           <div className="flex  justify-between">
             <div>
               <div className="flex items-center gap-4 pb-5">
-                <h1>logo</h1>
-                <h1>Dream Destinations</h1>
+                <DreamLogo />
               </div>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -113,7 +113,10 @@ const Footer = () => {
       <div className="bg-[#00294D]">
         <RootContainer>
           <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-light-yellow">
-            <p>© 2021 Dream Destinations. All Rights Reserved</p>
+            <p>
+              © 2024 - {new Date().getFullYear()} Dream Destinations. All Rights
+              Reserved
+            </p>
             <p>Privacy Policy</p>
           </div>
         </RootContainer>

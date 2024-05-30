@@ -39,7 +39,8 @@ const FeaturedDestinationCard = ({
         }`}
       >
         <p className="flex items-center justify-between gap-4 text-xl">
-          Paris <span className="font-bold text-3xl">0{index}</span>
+          {travel?.destination}
+          <span className="font-bold text-3xl">0{index}</span>
         </p>
       </div>
     </Link>

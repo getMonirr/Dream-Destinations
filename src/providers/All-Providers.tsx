@@ -33,6 +33,13 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
               // Alias Token
               // colorBgContainer: "#E6F4E0",
             },
+            components: {
+              // Timeline: {
+              //   dotBorderWidth: 4,
+              //   tailWidth: 10,
+              //   itemPaddingBottom: 100,
+              // },
+            },
           }}
         >
           {children}
