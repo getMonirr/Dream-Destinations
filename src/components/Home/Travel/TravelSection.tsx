@@ -24,14 +24,18 @@ const TravelSection = async () => {
         {/* <h1 className="text-3xl font-bold">Travel</h1> */}
       </DrdSection>
       <RootContainer>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {travelData?.data?.map((travel: ITrip) => (
             <SingleTravelCard key={travel.id} travel={travel} />
           ))}
         </div>
         <div className="text-center">
           <Link href="/travels">
-            <Button className="mt-20 min-w-80" type="primary" size="large">
+            <Button
+              className="mt-20 min-w-full  md:min-w-80"
+              type="primary"
+              size="large"
+            >
               View All
             </Button>
           </Link>

@@ -1,15 +1,17 @@
 import { travelPaginationPerPage } from "@/constant/paginationControl";
 import { createSlice } from "@reduxjs/toolkit";
+import { Dayjs } from "dayjs";
 import { RootState } from "../../store";
 
 interface IInitialState {
   destination: string;
-  startDates: Date | string;
+  startDates: Date | string | null | Dayjs;
   endDates: string;
   searchTerm: string;
   limit: number;
   page: number;
   type: string | null;
+  sortBy: string;
 }
 
 const initialState: IInitialState = {
@@ -21,6 +23,7 @@ const initialState: IInitialState = {
   limit: travelPaginationPerPage,
   page: 1,
   type: null,
+  sortBy: "destination",
 };
 
 const tripSlice = createSlice({
@@ -53,6 +56,20 @@ const tripSlice = createSlice({
       state.type = action.payload;
       state.page = 1;
     },
+    setSortBy: (state, action) => {
+      state.sortBy = "destination";
+      state.page = 1;
+    },
+    resetTripQueries: (state) => {
+      state.destination = "";
+      state.startDates = "";
+      state.endDates = "";
+      state.searchTerm = "";
+      state.limit = travelPaginationPerPage;
+      state.page = 1;
+      state.type = null;
+      state.sortBy = "destination";
+    },
   },
 });
 
@@ -64,6 +81,8 @@ export const {
   setLimit,
   setPage,
   setType,
+  setSortBy,
+  resetTripQueries,
 } = tripSlice.actions;
 
 const tripReducer = tripSlice.reducer;

@@ -8,10 +8,20 @@ import TravelCardParagraph from "./travelCardParagraph";
 
 const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
   const { destination, startDate, endDate, image } = travel;
+
+  const style = {
+    width: "100%",
+    padding: "10px",
+
+    "@media (minWidth: 500px)": {
+      padding: "180px",
+    },
+  };
+
   return (
     <div>
       <Card
-        style={{ width: "100%", padding: "18px" }}
+        style={style}
         bordered={false}
         hoverable
         cover={

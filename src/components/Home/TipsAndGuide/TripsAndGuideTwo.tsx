@@ -15,14 +15,14 @@ const TripsAndGuideTwo: React.FC = () => (
     <DrdSection name="Trips & Guide" description="Explore the world with us" />
     <div>
       <RootContainer>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-32">
           <div>
             <Image
               src={travelTripsImg}
               alt="Travel trips and tricks"
               className="rounded-2xl"
               style={{
-                objectFit: "cover",
+                objectFit: "fill",
                 width: "100%",
                 height: "100%",
               }}

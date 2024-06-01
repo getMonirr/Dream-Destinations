@@ -4,10 +4,12 @@ import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppSelector } from "@/lib/redux/hooks";
 import { EditOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Flex } from "antd";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DreamLogo from "./DreamLogo";
-import UserProfile from "./UserProfile";
+
+const UserProfile = dynamic(() => import("./UserProfile"), { ssr: false });
 
 const menuItems = [
   {
@@ -57,11 +59,11 @@ const AppNavbar = ({ isVertical }: { isVertical?: boolean }) => {
       </ul>
       <div className="flex items-center justify-center gap-4">
         {user ? (
-          <>
-            <UserProfile />
-          </>
-        ) : (
           <div>
+            <UserProfile />
+          </div>
+        ) : (
+          <div className="flex items-center justify-center gap-4">
             <Link href="/auth/login">
               <Button type="primary" icon={<UserOutlined />}>
                 Login

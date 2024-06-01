@@ -4,6 +4,7 @@ import DrdForm from "@/components/Form/DrDForm";
 import DrdInput from "@/components/Form/DrdInput";
 import DrdSelect from "@/components/Form/DrdSelect";
 import {
+  resetTripQueries,
   selectTripQueries,
   setDestination,
   setSearchTerm,
@@ -16,16 +17,22 @@ import { Button } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { FieldValues } from "react-hook-form";
 import { FaLocationDot } from "react-icons/fa6";
-import { toast } from "react-toastify";
 
+import { TravelType } from "@/types";
 import dayjs from "dayjs";
 
 // adventure, leisure, business
-const travelTypes = [
-  { value: "adventure", label: "Adventure" },
-  { value: "leisure", label: "Leisure" },
-  { value: "business", label: "Business" },
-];
+// const travelTypes = [
+//   { value: "adventure", label: "Adventure" },
+//   { value: "leisure", label: "Leisure" },
+//   { value: "business", label: "Business" },
+// ];
+
+// generate travel types from the enum
+const travelTypes = Object.values(TravelType).map((type) => ({
+  value: type,
+  label: type,
+}));
 
 const SearchBox = () => {
   const pathname = usePathname();
@@ -38,8 +45,8 @@ const SearchBox = () => {
 
   const handleSearchTravels = async (data: FieldValues) => {
     if (!data?.startDates && !data?.destination && !data?.type) {
-      toast.info("Please fill at least one field");
-      return;
+      // trigger for get all data from the server
+      dispatch(resetTripQueries());
     }
 
     console.log(data);
@@ -47,15 +54,16 @@ const SearchBox = () => {
     let formattedDate = "";
 
     if (data?.startDates) {
-      const startDate = data?.startDates["$d"];
-      const customDate = startDate.toLocaleDateString("en-US");
-      const [month, day, year] = customDate.split("/");
-      const formattedDateNew = `${year}-${month.padStart(
-        2,
-        "0"
-      )}-${day.padStart(2, "0")}`;
+      // const startDate = data?.startDates["$d"];
+      // const customDate = startDate.toLocaleDateString("en-US");
+      // const [month, day, year] = customDate.split("/");
+      // const formattedDateNew = `${year}-${month.padStart(
+      //   2,
+      //   "0"
+      // )}-${day.padStart(2, "0")}`;
 
-      formattedDate = formattedDateNew;
+      // formattedDate = formattedDateNew;
+      formattedDate = dayjs(data?.startDates).format("YYYY-MM-DD");
     }
 
     if (data?.destination) {
@@ -85,7 +93,7 @@ const SearchBox = () => {
         onSubmit={handleSearchTravels}
         defaultValues={{
           destination: travelQueries.destination,
-          startDates: dayjs(travelQueries.startDates),
+          // startDates: dayjs(travelQueries.startDates),
           type: travelQueries.type,
         }}
       >

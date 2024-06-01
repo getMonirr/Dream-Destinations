@@ -25,7 +25,7 @@ const Footer = () => {
         className="py-20 pt-36 bg-drd-light-green text-drd-green"
       >
         <RootContainer>
-          <div className="flex  justify-between">
+          <div className="flex justify-between gap-8 flex-wrap">
             <div>
               <div className="flex items-center gap-4 pb-5">
                 <DreamLogo />

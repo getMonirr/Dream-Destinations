@@ -2,6 +2,9 @@
 
 import DashboardCard from "@/components/Dashboard/DashboardHome/DashboardCard";
 import DrdDashboardTitle from "@/components/Dashboard/shared/DrdDashboardTitle";
+import DrdBar from "@/components/Dashboard/table/DrdTable";
+import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
+import { useAppSelector } from "@/lib/redux/hooks";
 import { Divider, Progress } from "antd";
 import { FaLuggageCart } from "react-icons/fa";
 import { FaDownload, FaTicket, FaUser } from "react-icons/fa6";
@@ -30,6 +33,8 @@ const iconList = [
 ];
 
 const DefaultDashboard = () => {
+  const user = useAppSelector(selectUser);
+
   return (
     <>
       <DrdDashboardTitle name="Welcome Dream Destination Dashboard" />
@@ -50,27 +55,37 @@ const DefaultDashboard = () => {
               <h1 className="text-2xl font-bold">Travel Statistics</h1>
             </div>
             <Divider />
-            table
+            <DrdBar />
           </div>
           <div className="bg-white p-8">
             <div>
-              <h1 className="text-2xl font-bold">User Statistics</h1>
+              <h1 className="text-2xl font-bold">
+                {user?.role == "ADMIN" ? "User" : "Travel"} Statistics
+              </h1>
             </div>
             <Divider />
-            <div className="w-full flex items-center justify-between flex-wrap gap-10">
+            <div className="w-full flex items-center justify-between flex-wrap gap-10 h-full">
               <Progress
                 type="circle"
                 percent={75}
-                format={(percent) => `Users`}
+                format={(percent) =>
+                  `${user?.role == "ADMIN" ? "Users" : "Travelers"}`
+                }
                 strokeColor="#3a643b"
               />
               <Progress
                 s
                 type="circle"
                 percent={80}
-                format={(percent) => `Admins`}
+                format={(percent) =>
+                  `${user?.role == "ADMIN" ? "Packages" : "Trips"}`
+                }
               />
-              <Progress type="circle" percent={100} format={() => "Reaching"} />
+              <Progress
+                type="circle"
+                percent={100}
+                format={() => `${user?.role === "ADMIN" ? "Reaching" : "Done"}`}
+              />
             </div>
           </div>
         </div>

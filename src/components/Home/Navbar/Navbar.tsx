@@ -5,9 +5,12 @@ import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppSelector } from "@/lib/redux/hooks";
 import { MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer } from "antd";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import AppNavbar from "./AppNavBar";
-import UserProfile from "./UserProfile";
+import DreamLogo from "./DreamLogo";
+
+const UserProfile = dynamic(() => import("./UserProfile"), { ssr: false });
 
 const Navbar = () => {
   const user = useAppSelector(selectUser);
@@ -25,10 +28,8 @@ const Navbar = () => {
             size="large"
             icon={<MenuOutlined />}
           />
-          <div>
-            <h1>Dream Destinations</h1>
-          </div>
-          {user && <UserProfile />}
+          <div>{!user && <DreamLogo isTitleShow={false} />}</div>
+          <div>{user && <UserProfile />}</div>
         </div>
         <Drawer
           open={open}

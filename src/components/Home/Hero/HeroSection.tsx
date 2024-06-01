@@ -16,7 +16,7 @@ const HeroSection = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="h-[calc(100vh-80px)] relative flex items-center justify-center"
+      className=" h-full 2xl:h-[calc(100vh-80px)] relative flex items-center justify-center py-8"
     >
       {/* black overlay  */}
       <div className="absolute top-0 left-0 w-full h-full bg-drd-dark-green  opacity-40"></div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
             <Link href="/dashboard/user/post-travel">
               <Button
                 size="large"
-                className="my-10 w-80 font-bold"
+                className="my-10 w-full md:w-80 font-bold"
                 icon={<ShareAltOutlined />}
                 style={{
                   fontWeight: "bold",

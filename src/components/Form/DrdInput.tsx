@@ -35,6 +35,7 @@ const DrdInput = ({
               placeholder={placeholder}
               disabled={disabled}
               prefix={prefix}
+              allowClear
             />
             {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>

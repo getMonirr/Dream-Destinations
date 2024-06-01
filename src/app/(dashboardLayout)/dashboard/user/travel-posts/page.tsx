@@ -83,15 +83,15 @@ const TravelPosts = () => {
   };
 
   // default value for travel with some random value
-  const defaultValues = {
-    destination: "This destination is for testing purpose",
-    type: "ADVENTURE",
-    budget: "654546456",
-    description: "This is a description for testing purpose",
-    startDate: dayjs("2022-09-09"),
-    endDate: dayjs("2022-09-10"),
-    activities: ["Activity 1", "Activity 2"],
-  };
+  // const defaultValues = {
+  //   destination: "This destination is for testing purpose",
+  //   type: "ADVENTURE",
+  //   budget: "654546456",
+  //   description: "This is a description for testing purpose",
+  //   startDate: dayjs("2022-09-09"),
+  //   endDate: dayjs("2022-09-10"),
+  //   activities: ["Activity 1", "Activity 2"],
+  // };
 
   return (
     <div>
@@ -103,7 +103,7 @@ const TravelPosts = () => {
         <DrdForm
           onSubmit={handlePostTravel}
           resolver={zodResolver(postTravelSchema)}
-          defaultValues={defaultValues}
+          // defaultValues={defaultValues}
         >
           <div className="w-full flex items-center justify-between gap-4 flex-col md:flex-row ">
             <DrdInput

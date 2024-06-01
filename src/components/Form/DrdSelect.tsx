@@ -35,6 +35,7 @@ const DrdSelect = ({
               className="w-full md:w-auto"
               options={options}
               placeholder={placeholder}
+              allowClear
             />
             {error && <small className="text-red-500">{error.message}</small>}
           </FormItem>

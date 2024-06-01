@@ -7,9 +7,12 @@ import { generateMenuItems } from "@/utils/generateSidebarMenu";
 import { removeTokenFromCookie } from "@/utils/helper";
 import { LogoutOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
+
+import dreamLogo from "@/asset/images/home/Dream travel-bg- green.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -45,14 +48,22 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         style={{
           height: "100vh",
           position: "fixed",
+          zIndex: 9999,
         }}
       >
         <div className="flex justify-between items-center flex-col h-screen bg-drd-green">
           <div className="w-full ">
             <div className="demo-logo-vertical">
-              <h1 className="text-drd-light-yellow text-center py-8">
-                <Link href="/">Logo</Link>
-              </h1>
+              <div className="text-drd-light-yellow text-center py-8 flex items-center justify-center ">
+                <Link href="/">
+                  <Image
+                    src={dreamLogo.src}
+                    width={50}
+                    height={50}
+                    alt="Dream Destination"
+                  />
+                </Link>
+              </div>
             </div>
             <Menu
               // theme="dark"
@@ -102,9 +113,17 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       </Sider>
       <Layout className="lg:ml-[200px]">
         <div className=" bg-drd-green h-[80px] flex items-center justify-between px-8">
-          <h1 className="text-white text-2xl font-bold">
-            Dream Destination Dashboard
-          </h1>
+          <h1 className="text-white text-2xl font-bold">Dream Travel</h1>
+          <div>
+            <Link href="/">
+              <Image
+                src={dreamLogo.src}
+                width={50}
+                height={50}
+                alt="Dream Destination"
+              />
+            </Link>
+          </div>
           <UserProfile className="text-white" />
         </div>
         <Content style={{ margin: "24px 16px 0" }}>
