@@ -3,6 +3,7 @@ import type {
   FetchArgs,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
+import { toast } from "react-toastify";
 
 import { config } from "@/config";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
@@ -11,7 +12,9 @@ import { appTags } from "./tag";
 
 // Create a baseQuery with the baseUrl and credentials
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${config.apiUrl}`,
+  baseUrl: `${
+    config.apiUrl || "https://server-dream-destinations.vercel.app/api"
+  }`,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -31,26 +34,25 @@ const baseQueryModifiedForValidationError: BaseQueryFn<
 
   console.log({ result });
 
-  // if (result?.error?.status === 404) {
-  //   toast.error(
-  //     result.error.data?.errorMessage ||
-  //       result.error.data?.message ||
-  //       "Resource not found"
-  //   );
-  // } else
-  //   if (result?.error?.status === 401) {
-  //     toast.error(
-  //       result.error.data?.errorMessage ||
-  //         result.error.data?.message ||
-  //         "Unauthorized"
-  //     );
-  //   } else if (result?.error?.status === 400) {
-  //     toast.error(
-  //       result.error.data?.errorMessage ||
-  //         result.error.data?.message ||
-  //         "Bad request"
-  //     );
-  //   }
+  if (result?.error?.status === 404) {
+    toast.error(
+      (result.error.data as { errorMessage?: string })?.errorMessage ||
+        (result.error.data as { message?: string })?.message ||
+        "Resource not found"
+    );
+  } else if (result?.error?.status === 401) {
+    toast.error(
+      (result.error.data as { errorMessage?: string })?.errorMessage ||
+        (result.error.data as { message?: string })?.message ||
+        "Unauthorized"
+    );
+  } else if (result?.error?.status === 400) {
+    toast.error(
+      (result.error.data as { errorMessage?: string })?.errorMessage ||
+        (result.error.data as { message?: string })?.message ||
+        "Bad request"
+    );
+  }
 
   return result;
 };

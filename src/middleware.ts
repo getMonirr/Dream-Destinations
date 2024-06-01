@@ -25,18 +25,34 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   console.log({ token, pathname });
+  const res = NextResponse.next();
+
+  // add the CORS headers to the response
+  res.headers.append("Access-Control-Allow-Credentials", "true");
+  res.headers.append(
+    "Access-Control-Allow-Origin",
+    "https://dream-destination-travel.vercel.app"
+  );
+  res.headers.append(
+    "Access-Control-Allow-Methods",
+    "GET,DELETE,PATCH,POST,PUT,OPTIONS"
+  );
+  res.headers.append(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+  );
 
   // if token is not present redirect to login page
   if (!token) {
     if (authRoutes.includes(pathname)) {
-      return NextResponse.next();
+      return res;
     } else {
       return NextResponse.redirect(new URL("/auth/login", request.url));
     }
   }
 
   if (token && commonRoutes.includes(pathname)) {
-    return NextResponse.next();
+    return res;
   }
 
   // get user role from token
@@ -50,7 +66,7 @@ export function middleware(request: NextRequest) {
   if (userRole && allowedRoutes) {
     const isAllowed = allowedRoutes.some((route) => pathname.match(route));
     if (isAllowed) {
-      return NextResponse.next();
+      return res;
     }
   }
 
