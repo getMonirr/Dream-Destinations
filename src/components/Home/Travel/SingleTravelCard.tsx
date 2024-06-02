@@ -11,7 +11,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
 
   const style = {
     width: "100%",
-    padding: "10px",
+    padding: "16px",
 
     "@media (minWidth: 500px)": {
       padding: "180px",
@@ -41,10 +41,39 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
             }}
           />
         }
+        actions={[
+          <Link key={1} href={`/travels/${travel.id}`} className="w-full">
+            <Button
+              key={1}
+              // icon={<ArrowRightOutlined />}
+              block
+              type="primary"
+              className="mt-4"
+              size="large"
+            >
+              Travel Details
+            </Button>
+          </Link>,
+          <Link
+            key={2}
+            href={`/travel-request?travelId=${travel.id}`}
+            className="w-full"
+          >
+            <Button
+              key={1}
+              // icon={<ArrowRightOutlined />}
+              block
+              className="mt-4"
+              size="large"
+            >
+              Travel Request
+            </Button>
+          </Link>,
+        ]}
       >
         <div className="">
           <div className="text-start text-base text-drd-green">
-            <p className="font-semibold text-2xl pt-6">{destination}</p>
+            <p className="font-semibold text-xl pt-6">{destination}</p>
             <div className="flex items-center gap-4 py-[18px]">
               <Avatar size="small" src={travel?.user?.userProfile?.image} />
               <p>@{travel?.user?.name}</p>
@@ -72,7 +101,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between gap-4 w-full">
+        {/* <div className="flex items-center justify-between gap-4 w-full">
           <Link href={`/travels/${travel.id}`} className="w-full">
             <Button
               key={1}
@@ -99,7 +128,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
               Travel Request
             </Button>
           </Link>
-        </div>
+        </div> */}
       </Card>
     </div>
   );

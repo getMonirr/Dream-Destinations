@@ -20,7 +20,7 @@ const menuItems = [
   {
     label: "About Us",
     key: "about",
-    link: "/about",
+    link: "/about-us",
   },
 ];
 

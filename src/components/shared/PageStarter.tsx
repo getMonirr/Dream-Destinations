@@ -20,7 +20,7 @@ const PageStarter = ({
         backgroundRepeat: "no-repeat",
       }}
       className={cn(
-        ` relative flex justify-center items-center  text-drd-green min-h-[500px]`,
+        ` relative flex justify-center items-center  text-drd-green min-h-[500px] py-8`,
         className
       )}
     >

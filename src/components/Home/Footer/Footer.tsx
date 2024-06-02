@@ -25,17 +25,17 @@ const Footer = () => {
         className="py-20 pt-36 bg-drd-light-green text-drd-green"
       >
         <RootContainer>
-          <div className="flex justify-between gap-8 flex-wrap">
-            <div>
+          <div className="flex justify-between gap-8 flex-wrap lg:flex-nowrap">
+            <div className="w-full">
               <div className="flex items-center gap-4 pb-5">
                 <DreamLogo />
               </div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur, ratione.
+                Dream Destinations is a travel agency that specializes in
+                creating custom travel experiences for our clients.
               </p>
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="font-bold text-lg">Contact Information</h1>
               <div className="space-y-3 pt-5 ">
                 <p className="flex items-center gap-2">
@@ -48,11 +48,11 @@ const Footer = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <FaPhone color="black" />
-                  <span>+880 1771900906</span>
+                  <span>+880 1771909060</span>
                 </p>
               </div>
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="font-bold text-lg">Quick Link</h1>
               <ul className="space-y-3 pt-5 ">
                 <li>
@@ -66,7 +66,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="w-full">
               <h1 className="font-bold text-lg">Follow Us</h1>
               <ul className="flex items-center gap-4 pt-5">
                 <li>

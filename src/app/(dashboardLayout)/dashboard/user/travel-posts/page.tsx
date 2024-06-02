@@ -74,7 +74,8 @@ const TravelPosts = () => {
       if (postRes?.success) {
         toast.success("Travel posted successfully");
 
-        router.push(`/travels/${postRes?.data?.id}`);
+        // router.push(`/travels/${postRes?.data?.id}`);
+        router.push(`/dashboard/user/my-posted-travel`);
       }
     } catch (error: any) {
       toast.error(error?.data?.message || "Failed to post travel");

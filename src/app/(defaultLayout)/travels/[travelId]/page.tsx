@@ -1,4 +1,5 @@
 import travelImage from "@/asset/images/auth/login-img.jpg";
+import ImageSlider from "@/components/Home/Travel/SingleTravel/ImageSlider";
 import SingleTravelTextDetails from "@/components/Home/Travel/SingleTravel/SingleTravelTextDetails";
 import DrdSection from "@/components/shared/DrdSection";
 import PageStarter from "@/components/shared/PageStarter";
@@ -41,9 +42,9 @@ const TravelDetailsPage = async ({ params }: ITravelDetailsPageProps) => {
       </PageStarter>
       <div className="pt-10">
         <RootContainer>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center md:justify-between flex-wrap md:flex-nowrap">
             <DrdSection name="Travel details" />
-            <div>
+            <div className="text-center">
               <Link href={`/travel-request?travelId=${travelData?.data?.id}`}>
                 <TravelRequest />
               </Link>
@@ -61,6 +62,10 @@ const TravelDetailsPage = async ({ params }: ITravelDetailsPageProps) => {
             <SingleTravelTextDetails travel={travelData?.data} />
           </div>
           <TravelSteps travel={travelData?.data} />
+          <DrdSection name="Travel Memories" />
+          <div>
+            <ImageSlider />
+          </div>
         </RootContainer>
       </div>
     </div>

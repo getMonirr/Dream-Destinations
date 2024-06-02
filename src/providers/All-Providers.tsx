@@ -39,6 +39,9 @@ const AllProviders = ({ children }: { children: ReactNode }) => {
               //   tailWidth: 10,
               //   itemPaddingBottom: 100,
               // },
+              Card: {
+                actionsLiMargin: "0 0 0 8px",
+              },
             },
           }}
         >

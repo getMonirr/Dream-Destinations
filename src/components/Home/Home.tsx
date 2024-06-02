@@ -1,7 +1,9 @@
+import CTASection from "./CTA/CTASection";
 import Footer from "./Footer/Footer";
 import HeroSection from "./Hero/HeroSection";
 import Header from "./Navbar/Header";
 import OurServices from "./OurServices/OurServices";
+import DrdStats from "./Stats/DrdStats";
 import TripsAndGuideTwo from "./TipsAndGuide/TripsAndGuideTwo";
 import FeaturedDestination from "./Travel/FeaturedDestination";
 import TravelSection from "./Travel/TravelSection";
@@ -16,7 +18,9 @@ const HomePage = () => {
       <OurServices />
       <TravelSection />
       <FeaturedDestination />
+      <CTASection />
       <TripsAndGuideTwo />
+      <DrdStats />
       <Footer />
     </div>
   );

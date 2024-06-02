@@ -37,7 +37,7 @@ const HeroSection = () => {
             <p className="text-xl py-5">
               Your dream vacation is just a click away
             </p>
-            <Link href="/dashboard/user/post-travel">
+            <Link href="/dashboard/user/travel-posts">
               <Button
                 size="large"
                 className="my-10 w-full md:w-80 font-bold"

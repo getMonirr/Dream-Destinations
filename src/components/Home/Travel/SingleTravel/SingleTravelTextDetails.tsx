@@ -24,7 +24,7 @@ const SingleTravelTextDetails = ({ travel }: { travel: ITrip }) => {
           </div>
         </div>
       </div>
-      <div className="p-8 pb-4 grid grid-cols-2">
+      <div className="p-8 pb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <p className="flex items-center gap-4 text-xl font-bold ">
           <CalendarOutlined />
           Destination
@@ -33,12 +33,12 @@ const SingleTravelTextDetails = ({ travel }: { travel: ITrip }) => {
       </div>
 
       <Divider />
-      <div className="p-8 pb-4 grid grid-cols-2">
+      <div className="p-8 pb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <p className="flex items-center gap-4 text-xl font-bold ">
           <CalendarOutlined />
           Description
         </p>
-        <p className="text-xl">
+        <p className="text-xl text-wrap">
           {travel?.description || "No description available"}
         </p>
       </div>

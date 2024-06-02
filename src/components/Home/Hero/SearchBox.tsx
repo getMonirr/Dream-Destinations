@@ -7,6 +7,7 @@ import {
   resetTripQueries,
   selectTripQueries,
   setDestination,
+  setEndDates,
   setSearchTerm,
   setStartDates,
   setType,
@@ -66,6 +67,10 @@ const SearchBox = () => {
       formattedDate = dayjs(data?.startDates).format("YYYY-MM-DD");
     }
 
+    if (data?.endDates) {
+      dispatch(setEndDates(dayjs(data?.endDates).format("YYYY-MM-DD")));
+    }
+
     if (data?.destination) {
       dispatch(setDestination(data.destination));
     }
@@ -97,21 +102,24 @@ const SearchBox = () => {
           type: travelQueries.type,
         }}
       >
-        <div className=" flex flex-col md:flex-row items-center justify-between md:gap-8">
-          <div className="flex flex-col md:flex-row items-center md:items-end justify-center md:gap-8">
-            <div className="w-full md:w-auto">
+        <div className=" flex flex-col lg:flex-row items-center justify-between md:gap-8">
+          <div className="flex flex-col lg:flex-row items-center md:items-end justify-center md:gap-8">
+            <div className="w-full lg:w-auto">
               <DrdInput
                 placeholder="Search Destination"
                 name="destination"
                 type="text"
                 label="Destination"
-                prefix={<FaLocationDot color="green" />}
+                prefix={<FaLocationDot color="#3a643b" />}
               />
             </div>
-            <div className="w-full md:w-auto">
-              <DrdDateRangePicker name="startDates" label="Select Date" />
+            <div className="w-full lg:w-auto">
+              <DrdDateRangePicker name="startDates" label="Start Date" />
             </div>
-            <div className="w-full md:w-auto">
+            <div className="w-full lg:w-auto">
+              <DrdDateRangePicker name="endDates" label="End Date" />
+            </div>
+            <div className="w-full lg:w-auto">
               <DrdSelect
                 name="type"
                 options={travelTypes}
@@ -119,7 +127,7 @@ const SearchBox = () => {
                 placeholder="Select Type"
               />
             </div>
-            <div className="w-full md:w-auto">
+            <div className="w-full lg:w-auto">
               {pathname === "/travels" && (
                 <DrdInput
                   name="searchTerm"
@@ -131,7 +139,7 @@ const SearchBox = () => {
             </div>
           </div>
           <Button
-            className=""
+            className="w-full lg:w-auto"
             type="primary"
             size="large"
             htmlType="submit"

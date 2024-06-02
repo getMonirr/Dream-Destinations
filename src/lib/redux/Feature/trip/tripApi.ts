@@ -25,8 +25,11 @@ const tripApi = baseApi.injectEndpoints({
         if (endDates) {
           params.append("endDate", endDates);
         }
+        // if (searchTerm) {
+        //   params.append("searchTerm", searchTerm);
+        // }
         if (searchTerm) {
-          params.append("searchTerm", searchTerm);
+          params.append("description", searchTerm);
         }
         if (limit) {
           params.append("limit", limit);

@@ -1,6 +1,7 @@
 "use client";
 
 import DrdDashboardTitle from "@/components/Dashboard/shared/DrdDashboardTitle";
+import DrdLoader from "@/components/shared/DrdLoader";
 import { useGetProfileQuery } from "@/lib/redux/Feature/auth/authApi";
 import { selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppSelector } from "@/lib/redux/hooks";
@@ -20,7 +21,7 @@ const Profile = () => {
     isLoading,
   } = useGetProfileQuery(null, { skip: !userInfo?.id });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <DrdLoader className="h-[calc(100vh-200px)]" />;
 
   const user = userProfileData?.data;
 

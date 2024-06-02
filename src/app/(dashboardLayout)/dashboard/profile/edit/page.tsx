@@ -5,6 +5,7 @@ import DrdForm from "@/components/Form/DrDForm";
 import DrdImageUpload from "@/components/Form/DrdImageUpload";
 import DrdInput from "@/components/Form/DrdInput";
 import DrdTextArea from "@/components/Form/DrdTextArea";
+import DrdLoader from "@/components/shared/DrdLoader";
 import {
   useGetProfileQuery,
   useUpdateProfileMutation,
@@ -77,7 +78,7 @@ const EditProfilePage = () => {
     }
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <DrdLoader className="h-[calc(100vh-200px)]" />;
 
   return (
     <div>
