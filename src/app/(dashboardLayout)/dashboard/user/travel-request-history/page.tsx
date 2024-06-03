@@ -20,7 +20,6 @@ const columns: TableProps<DataType>["columns"] = [
     title: "Sl. No.",
     dataIndex: "key",
     key: "Sl. No.",
-    responsive: ["sm"],
     fixed: "left",
     width: 100,
   },
@@ -31,7 +30,6 @@ const columns: TableProps<DataType>["columns"] = [
     render: (budget: number) => {
       return <span>${budget}</span>;
     },
-    responsive: ["sm"],
     width: 150,
   },
   {
@@ -41,7 +39,6 @@ const columns: TableProps<DataType>["columns"] = [
     render: (startDate: string) => {
       return <span>{moment(startDate).format("ll")}</span>;
     },
-    responsive: ["sm"],
     width: 150,
   },
   {
@@ -51,21 +48,18 @@ const columns: TableProps<DataType>["columns"] = [
     render: (endDate: string) => {
       return <span>{moment(endDate).format("ll")}</span>;
     },
-    responsive: ["sm"],
     width: 150,
   },
   {
     title: "Destination",
     key: "Destination",
     dataIndex: "destination",
-    responsive: ["sm"],
     width: 150,
   },
   {
     title: "Type",
     key: "Type",
     dataIndex: "type",
-    responsive: ["sm"],
     width: 150,
   },
   {
@@ -87,7 +81,6 @@ const columns: TableProps<DataType>["columns"] = [
         </span>
       );
     },
-    responsive: ["sm"],
     fixed: "right",
     width: 100,
   },

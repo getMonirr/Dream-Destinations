@@ -93,7 +93,10 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="bg-white bg-opacity-80 w-full mx-auto mt-4 px-10 py-6 rounded-3xl text-drd-green">
+    <div
+      className="bg-white bg-opacity-80 w-full mx-auto mt-4 px-10 py-6 rounded-3xl text-drd-green"
+      data-aos="fade-up"
+    >
       <DrdForm
         onSubmit={handleSearchTravels}
         defaultValues={{

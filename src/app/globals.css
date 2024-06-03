@@ -67,3 +67,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 640px) {
+  .ant-pagination-total-text {
+    display: none !important;
+  }
+}

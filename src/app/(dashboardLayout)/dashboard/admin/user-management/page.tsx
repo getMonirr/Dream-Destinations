@@ -102,10 +102,9 @@ const UserManagementPage = () => {
   // generate columns for user following above example
   const columns: TableProps<IUser>["columns"] = [
     {
-      title: "Sl. No.",
+      title: "No.",
       dataIndex: "key",
       key: "Sl. No.",
-      responsive: ["sm"],
       fixed: "left",
       width: 40,
     },
@@ -113,14 +112,12 @@ const UserManagementPage = () => {
       title: "Name",
       dataIndex: "name",
       key: "Name",
-      responsive: ["sm"],
       width: 150,
     },
     {
       title: "Email",
       dataIndex: "email",
       key: "Email",
-      responsive: ["sm"],
       width: 150,
       render: (email: string) => {
         return (
@@ -129,7 +126,7 @@ const UserManagementPage = () => {
               text: async () =>
                 new Promise((resolve) => {
                   setTimeout(() => {
-                    resolve("Request text");
+                    resolve(email);
                   }, 500);
                 }),
             }}
@@ -143,7 +140,6 @@ const UserManagementPage = () => {
       title: "Role",
       key: "Role",
       dataIndex: "role",
-      responsive: ["sm"],
       width: 150,
       render: (role: string) => {
         return (
@@ -158,7 +154,6 @@ const UserManagementPage = () => {
       title: "Status",
       key: "Status",
       dataIndex: "status",
-      responsive: ["sm"],
       width: 150,
       render: (status: string) => {
         return (
@@ -176,7 +171,6 @@ const UserManagementPage = () => {
       title: "Deleted",
       key: "Deleted",
       dataIndex: "isDeleted",
-      responsive: ["sm"],
       width: 150,
       render: (isDeleted: boolean) => {
         return (
@@ -190,7 +184,6 @@ const UserManagementPage = () => {
       title: "Action",
       key: "Action",
       dataIndex: "key",
-      responsive: ["sm"],
       fixed: "right",
       width: 100,
       render: (value, record) => {
@@ -305,7 +298,7 @@ const UserManagementPage = () => {
           columns={columns}
           dataSource={data}
           pagination={false}
-          scroll={{ x: 1500, y: 300 }}
+          scroll={{ x: 1500, y: 500 }}
         />
         <div className="py-8 flex items-center justify-center">
           <DrdPagination

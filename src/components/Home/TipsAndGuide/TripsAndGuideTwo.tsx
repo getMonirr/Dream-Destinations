@@ -22,7 +22,7 @@ const TripsAndGuideTwo: React.FC = () => (
       <div>
         <RootContainer>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-32">
-            <div>
+            <div data-aos="fade-right">
               <Image
                 src={travelTripsImg}
                 alt="Travel trips and tricks"
@@ -34,7 +34,7 @@ const TripsAndGuideTwo: React.FC = () => (
                 }}
               />
             </div>
-            <div className="space-y-8 text-drd-green">
+            <div className="space-y-8 text-drd-green" data-aos="fade-left">
               <div>
                 <h1 className="text-2xl font-bold flex items-center gap-4 mb-2">
                   <TbCircleNumber1Filled className="text-drd-dark-green size-10" />
@@ -84,7 +84,7 @@ const TripsAndGuideTwo: React.FC = () => (
       <div>
         <RootContainer>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-32">
-            <div className="block md:hidden">
+            <div className="block md:hidden" data-aos="fade-right">
               <Image
                 src={travelTripsTwoIma}
                 alt="Travel trips and tricks"
@@ -96,7 +96,7 @@ const TripsAndGuideTwo: React.FC = () => (
                 }}
               />
             </div>
-            <div className="space-y-8 text-drd-green">
+            <div className="space-y-8 text-drd-green" data-aos="fade-right">
               <div>
                 <h1 className="text-2xl font-bold flex items-center gap-4 mb-2">
                   <TbCircleNumber5Filled className="text-drd-dark-green size-10" />
@@ -143,7 +143,7 @@ const TripsAndGuideTwo: React.FC = () => (
                 </p>
               </div>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block" data-aos="fade-left">
               <Image
                 src={travelTripsTwoIma}
                 alt="Travel trips and tricks"

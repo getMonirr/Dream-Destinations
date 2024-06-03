@@ -24,4 +24,5 @@ export const removeTokenFromCookie = (key: string) => {
     secure: true,
     maxAge: 0,
   });
+  redirect("/");
 };

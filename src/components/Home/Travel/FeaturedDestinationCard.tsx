@@ -28,6 +28,7 @@ const FeaturedDestinationCard = ({
     // </Card>
     <Link href={`/travels/${travel?.id}`}>
       <div
+        data-aos="fade-up"
         style={{
           backgroundImage: `url(${travel?.image || url})`,
           backgroundSize: "cover",
@@ -35,7 +36,7 @@ const FeaturedDestinationCard = ({
           backgroundRepeat: "no-repeat",
         }}
         className={`min-h-[500px] bg-drd-green h-full p-8 rounded-3xl text-white ${
-          index % 2 == 0 ? "mt-16" : "lg:mt-16 xl:mt-0"
+          index % 2 == 0 ? "sm:mt-16" : "lg:mt-16 xl:mt-0"
         }`}
       >
         <p className="flex items-center justify-between gap-4 text-xl">

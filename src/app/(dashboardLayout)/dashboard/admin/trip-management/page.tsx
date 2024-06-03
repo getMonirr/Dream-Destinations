@@ -120,7 +120,6 @@ const TripManagement = () => {
       title: "Sl. No.",
       dataIndex: "key",
       key: "Sl. No.",
-      responsive: ["sm"],
       fixed: "left",
       width: 40,
     },
@@ -131,7 +130,6 @@ const TripManagement = () => {
       render: (budget: number) => {
         return <span>${budget}</span>;
       },
-      responsive: ["sm"],
       width: 150,
     },
     {
@@ -141,7 +139,6 @@ const TripManagement = () => {
       render: (startDate: string) => {
         return <span>{moment(startDate).format("ll")}</span>;
       },
-      responsive: ["sm"],
       width: 150,
     },
     {
@@ -151,28 +148,24 @@ const TripManagement = () => {
       render: (endDate: string) => {
         return <span>{moment(endDate).format("ll")}</span>;
       },
-      responsive: ["sm"],
       width: 150,
     },
     {
       title: "Destination",
       key: "Destination",
       dataIndex: "destination",
-      responsive: ["sm"],
       width: 150,
     },
     {
       title: "Type",
       key: "Type",
       dataIndex: "type",
-      responsive: ["sm"],
       width: 150,
     },
     {
       title: "Action",
       key: "Action",
       dataIndex: "key",
-      responsive: ["sm"],
       fixed: "right",
       width: 100,
       render: (value, record) => {

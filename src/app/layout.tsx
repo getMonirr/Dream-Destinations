@@ -18,7 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      style={{
+        scrollBehavior: "smooth",
+        // horizontal scrolling hidden
+        overflowX: "hidden",
+      }}
+    >
       <body className={inter.className}>
         <AntdRegistry>
           <AllProviders>{children}</AllProviders>

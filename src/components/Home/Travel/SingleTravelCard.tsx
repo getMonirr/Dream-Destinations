@@ -19,7 +19,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
   };
 
   return (
-    <div>
+    <div data-aos="zoom-in-down">
       <Card
         style={style}
         bordered={false}
