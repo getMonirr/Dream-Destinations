@@ -29,7 +29,13 @@ const travelTypeOptions = Object.keys(TravelType).map((key) => ({
   value: TravelType[key as keyof typeof TravelType],
 }));
 
-const UpdateTravelForm = ({ tripId }: { tripId: string | null }) => {
+const UpdateTravelForm = ({
+  tripId,
+  editBy,
+}: {
+  tripId: string | null;
+  editBy?: "user" | "admin";
+}) => {
   // react hook
   const [images, setImages] = useState<any>([]);
   const [defaultData, setDefaultData] = useState<any>({});
@@ -92,7 +98,11 @@ const UpdateTravelForm = ({ tripId }: { tripId: string | null }) => {
 
       if (updateRes?.success) {
         toast.success("Travel posted successfully");
-        router.push("/dashboard/admin/trip-management");
+        if (editBy === "user") {
+          router.push("/dashboard/user/my-posted-travel");
+        } else {
+          router.push("/dashboard/admin/trip-management");
+        }
       }
     } catch (error: any) {
       toast.error(error?.data?.message || "Failed to post travel");

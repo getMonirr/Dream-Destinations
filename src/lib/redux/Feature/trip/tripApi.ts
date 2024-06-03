@@ -42,7 +42,7 @@ const tripApi = baseApi.injectEndpoints({
         }
 
         return {
-          url: "trips",
+          url: "/trips",
           method: "GET",
           params,
         };
@@ -53,7 +53,7 @@ const tripApi = baseApi.injectEndpoints({
     // create trip
     createTrip: build.mutation({
       query: (trip: any) => ({
-        url: "trips",
+        url: "/trips",
         method: "POST",
         body: trip,
       }),
@@ -64,7 +64,7 @@ const tripApi = baseApi.injectEndpoints({
     // get trip by id
     getTripById: build.query({
       query: (id) => ({
-        url: `trips/${id}`,
+        url: `/trips/${id}`,
         method: "GET",
       }),
       // providesTags: [tags.TRAVEL],
@@ -76,7 +76,7 @@ const tripApi = baseApi.injectEndpoints({
     // send a travel buddy request
     sendTravelBuddyRequest: build.mutation({
       query: ({ id, data }) => ({
-        url: `trip/${id}/request`,
+        url: `/trip/${id}/request`,
         method: "POST",
         body: data,
       }),
@@ -107,7 +107,7 @@ const tripApi = baseApi.injectEndpoints({
         url: "/trip/my-trips",
         method: "GET",
       }),
-      providesTags: [tags.TRIP],
+      providesTags: [tags.TRIP, tags.TRAVEL],
     }),
   }),
 });

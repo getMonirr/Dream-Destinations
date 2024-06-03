@@ -16,33 +16,33 @@ const adminTripApi = baseApi.injectEndpoints({
         }
 
         return {
-          url: "trips",
+          url: "/trips",
           method: "GET",
           params,
         };
       },
-      providesTags: [tags.TRAVEL],
+      providesTags: [tags.TRAVEL, tags.TRIP],
     }),
 
     // update trip
     updateTrip: builder.mutation({
       query: ({ id, trip }) => ({
-        url: `trips/${id}`,
+        url: `/trips/${id}`,
         method: "PUT",
         body: trip,
       }),
 
-      invalidatesTags: [tags.TRAVEL],
+      invalidatesTags: [tags.TRAVEL, tags.TRIP],
     }),
 
     // delete trip
     deleteTrip: builder.mutation({
       query: (id) => ({
-        url: `trips/${id}`,
+        url: `/trips/${id}`,
         method: "DELETE",
       }),
 
-      invalidatesTags: [tags.TRAVEL],
+      invalidatesTags: [tags.TRAVEL, tags.TRIP],
     }),
   }),
 });

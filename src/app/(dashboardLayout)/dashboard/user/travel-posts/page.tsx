@@ -153,7 +153,7 @@ const TravelPosts = () => {
           </div>
 
           <div className="mb-4">
-            <DrdImageUpload setImages={setImages} />
+            <DrdImageUpload setImages={setImages} multiple={3} />
           </div>
 
           <div>

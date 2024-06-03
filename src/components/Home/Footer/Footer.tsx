@@ -117,7 +117,12 @@ const Footer = () => {
               © 2024 - {new Date().getFullYear()} Dream Destinations. All Rights
               Reserved
             </p>
-            <p>Privacy Policy</p>
+            <Link href="https://www.termsfeed.com/live/c7b41ae6-b284-4fde-afe6-bc4a97c1ad0a">
+              Privacy Policy
+            </Link>
+            <Link href="https://www.termsfeed.com/live/b31d1126-0ea6-4978-9859-5bb1458c328e">
+              Terms & Condition
+            </Link>
           </div>
         </RootContainer>
       </div>

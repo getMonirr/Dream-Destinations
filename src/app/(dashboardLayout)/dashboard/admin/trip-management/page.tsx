@@ -173,9 +173,12 @@ const TripManagement = () => {
         return (
           <div className="flex items-center justify-center gap-4">
             <Link href={`/dashboard/admin/edit-trip?tripId=${record.id}`}>
-              <Button type="primary">Edit</Button>
+              <Button type="primary" size="small">
+                Edit
+              </Button>
             </Link>
             <Button
+              size="small"
               type="dashed"
               danger
               onClick={() => showDeleteConfirm(record.id)}
