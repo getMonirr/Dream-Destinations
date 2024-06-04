@@ -65,6 +65,9 @@ const EditProfilePage = () => {
     // convert age to number
     values.userProfile.age = Number(values.userProfile.age);
 
+    // set empty string if bio is empty
+    values.userProfile.bio = values.userProfile.bio || "";
+
     try {
       const updateRes = await updateProfile(values).unwrap();
 

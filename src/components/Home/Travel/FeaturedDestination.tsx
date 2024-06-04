@@ -5,7 +5,11 @@ import { ITrip } from "@/types";
 import FeaturedDestinationCard from "./FeaturedDestinationCard";
 
 const FeaturedDestination = async () => {
-  const firstTenTravel = await fetch(`${config.apiUrl}/trips?limit=8`);
+  const firstTenTravel = await fetch(`${config.apiUrl}/trips?limit=8`, {
+    next: {
+      revalidate: 30,
+    },
+  });
   const travelData = await firstTenTravel.json();
   return (
     <div className="py-8">

@@ -17,7 +17,7 @@ const DrdStats = () => {
     >
       <div className="absolute top-0 left-0 w-full h-full bg-drd-dark-green  opacity-80"></div>
       <RootContainer className="z-30 relative">
-        <div className="text-white flex items-center justify-between gap-4 flex-wrap lg:flex-nowrap  min-h-[500px]">
+        <div className="text-white flex items-center justify-center lg:justify-between gap-4 flex-wrap lg:flex-nowrap  min-h-[500px]">
           <div className="text-center space-y-6 text-xl font-bold flex flex-col items-center justify-center hover:border hover:bg-drd-green p-4 rounded-md ease-in-out hover:ease-in-out duration-300">
             <FaPlaneDeparture className="text-5xl text-drd-light-yellow text-center" />
             <h3>900+</h3>

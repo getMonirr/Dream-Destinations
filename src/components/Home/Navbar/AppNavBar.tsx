@@ -18,6 +18,11 @@ const menuItems = [
     link: "/",
   },
   {
+    label: "Travels",
+    key: "travels",
+    link: "/travels",
+  },
+  {
     label: "About Us",
     key: "about",
     link: "/about-us",

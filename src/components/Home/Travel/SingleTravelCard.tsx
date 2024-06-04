@@ -1,13 +1,14 @@
 import { ITrip } from "@/types";
 import { CalendarOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card } from "antd";
+import Ribbon from "antd/es/badge/Ribbon";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import TravelCardParagraph from "./travelCardParagraph";
 
 const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
-  const { destination, startDate, endDate, image } = travel;
+  const { destination, startDate, endDate, image, type } = travel;
 
   const style = {
     width: "100%",
@@ -20,6 +21,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
 
   return (
     <div data-aos="zoom-in-down">
+      <Ribbon text={type} className=" z-50" />
       <Card
         style={style}
         bordered={false}

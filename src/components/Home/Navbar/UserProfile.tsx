@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/components/shared/cn";
+import { useGetProfileQuery } from "@/lib/redux/Feature/auth/authApi";
 import { logout, selectUser } from "@/lib/redux/Feature/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import { IUser } from "@/types";
@@ -15,6 +16,14 @@ const url =
 const UserProfile = ({ className }: { className?: string }) => {
   const dispatch = useAppDispatch();
   const user: IUser | null | undefined = useAppSelector(selectUser);
+
+  // get user profile
+  const { data: userProf, isLoading: isUserProfLoading } = useGetProfileQuery(
+    null,
+    { skip: !user?.id }
+  );
+
+  console.log(userProf);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -34,28 +43,32 @@ const UserProfile = ({ className }: { className?: string }) => {
     </div>
   );
 
+  // if (isUserProfLoading) return <>UserProfile Loading...</>;
+
   return (
     <div className="flex items-center gap-4 text-end">
       <div>
         {user && (
-          <>
+          <div>
             <h4 className={cn("font-bold", className)}>{user?.name}</h4>
             <p className={cn("text-xs", className)}>@{user?.role}</p>
-          </>
+          </div>
         )}
       </div>
-      <Popover content={profileContent} trigger="click">
-        <Avatar
-          src={url}
-          style={{
-            cursor: "pointer",
-            border: "1px solid #fff",
-            padding: "4px",
-            backgroundColor: "#fff",
-          }}
-          size={40}
-        />
-      </Popover>
+      {!isUserProfLoading && (
+        <Popover content={profileContent} trigger="click">
+          <Avatar
+            src={userProf?.data?.userProfile?.image}
+            style={{
+              cursor: "pointer",
+              border: "1px solid #fff",
+              padding: "4px",
+              backgroundColor: "#fff",
+            }}
+            size={40}
+          />
+        </Popover>
+      )}
     </div>
   );
 };

@@ -39,10 +39,14 @@ const FeaturedDestinationCard = ({
           index % 2 == 0 ? "sm:mt-16" : "lg:mt-16 xl:mt-0"
         }`}
       >
-        <p className="flex items-center justify-between gap-4 text-xl">
-          {travel?.destination}
-          <span className="font-bold text-3xl">0{index}</span>
-        </p>
+        {/* // black overlay from top to bottom, top should be more black */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black from-0% to-30% bg-opacity-50 rounded-3xl"></div>
+        <div className="z-50 relative">
+          <p className="flex items-center justify-between gap-4 text-xl z-50">
+            {travel?.destination}
+            <span className="font-bold text-3xl">0{index}</span>
+          </p>
+        </div>
       </div>
     </Link>
   );

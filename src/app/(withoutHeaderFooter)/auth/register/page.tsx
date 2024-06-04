@@ -62,11 +62,11 @@ const RegisterPage = () => {
           );
 
           // set token in cookie
-          setTokenInCookie("authToken", loginResponse.data.token);
+          setTokenInCookie(loginResponse.data.token, "/dashboard/profile");
           toast.dismiss(toastId);
 
           toast.success("Login Successful");
-          router.push("/dashboard");
+          // router.push("/dashboard");
         } else {
           toast.error("Login Failed");
           router.push("/auth/login");

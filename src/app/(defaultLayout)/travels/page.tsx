@@ -46,7 +46,7 @@ const TravelsPage = () => {
           <SearchBox />
         </RootContainer>
       </PageStarter>
-      <div className="pt-20 pb-10 bg-drd-light-green">
+      <div className=" pb-10 bg-drd-light-green">
         <RootContainer>
           <DrdSection name="View Our Travel" />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -70,7 +70,7 @@ const TravelsPage = () => {
         </RootContainer>
       </div>
       <Divider />
-      <div className="py-8 flex items-center justify-center">
+      <div className="pb-8 flex items-center justify-center">
         <DrdPagination
           metaData={travels?.meta}
           setPage={setPage}

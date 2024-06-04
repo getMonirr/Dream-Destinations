@@ -7,7 +7,11 @@ import Link from "next/link";
 import SingleTravelCard from "./SingleTravelCard";
 
 const TravelSection = async () => {
-  const firstTenTravel = await fetch(`${config.apiUrl}/trips?limit=10`);
+  const firstTenTravel = await fetch(`${config.apiUrl}/trips?limit=8`, {
+    next: {
+      revalidate: 30,
+    },
+  });
   const travelData = await firstTenTravel.json();
 
   // console.log(travelData);

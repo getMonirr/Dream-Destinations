@@ -112,7 +112,7 @@ const Footer = () => {
       </div>
       <div className="bg-[#00294D]">
         <RootContainer>
-          <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-light-yellow">
+          <div className="flex justify-center gap-4 items-center  py-8 text-center text-drd-light-yellow flex-wrap lg:flex-nowrap">
             <p>
               © 2024 - {new Date().getFullYear()} Dream Destinations. All Rights
               Reserved
