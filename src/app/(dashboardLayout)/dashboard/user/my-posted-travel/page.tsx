@@ -8,6 +8,7 @@ import { ExclamationCircleFilled } from "@ant-design/icons";
 import type { TableProps } from "antd";
 import { Button, Modal, Table } from "antd";
 import moment from "moment";
+import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
 const { confirm } = Modal;
@@ -43,6 +44,7 @@ const MyPostedTravelPage = () => {
         destination: travel?.destination,
         type: travel?.type,
         id: travel?.id,
+        image: travel?.image,
       };
     });
 
@@ -94,6 +96,23 @@ const MyPostedTravelPage = () => {
       key: "Sl. No.",
       fixed: "left",
       width: 40,
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "Image",
+      render: (image: string) => {
+        return (
+          <Image
+            src={image}
+            alt="travel"
+            className="w-16 h-16 object-cover rounded-md"
+            width={50}
+            height={50}
+          />
+        );
+      },
+      width: 100,
     },
     {
       title: "Budget",
