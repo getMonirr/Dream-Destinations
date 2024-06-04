@@ -1,4 +1,4 @@
-Live Site Link: [https://travel-buddy-getmonirr.vercel.app/](https://travel-buddy-getmonirr.vercel.app/)
+Live Site Link: [https://dream-destination-travel.vercel.app/](https://dream-destination-travel.vercel.app/)
 
 # Dream destination
 
