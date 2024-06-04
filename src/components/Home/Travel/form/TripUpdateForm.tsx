@@ -191,7 +191,7 @@ const UpdateTravelForm = ({
                   disabled={updateTravelStatus?.isLoading}
                   loading={updateTravelStatus?.isLoading}
                 >
-                  Post
+                  Update
                 </Button>
               </div>
             </DrdForm>
