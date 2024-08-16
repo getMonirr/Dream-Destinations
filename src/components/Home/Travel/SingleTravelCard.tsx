@@ -84,8 +84,7 @@ const SingleTravelCard = ({ travel }: { travel: ITrip }) => {
           <TravelCardParagraph
             paragraph={
               travel.description ||
-              `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
-            fugiat ab accusantium alias omnis perspiciatis illum sed oditasdfasdfffffffffffffffffffffffffffffffff`
+              "Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip."
             }
           />
           <div className="space-y-2">

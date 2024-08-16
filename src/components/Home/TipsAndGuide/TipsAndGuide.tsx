@@ -9,7 +9,7 @@ const TipsAndGuide = () => {
     <div className="pb-20">
       <DrdSection
         name="Tips and Guide"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, debitis!"
+        description="We provide the best travel experience for you. We have a wide range of travel destinations that you can choose from. We have a team of professionals who will guide you through your travel journey"
       />
       <RootContainer>
         <div className="flex items-center justify-between gap-8">
@@ -22,10 +22,10 @@ const TipsAndGuide = () => {
                 Choose Your Destination
               </h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                iste, veritatis numquam rerum dignissimos laborum culpa ut,
-                officia facilis distinctio blanditiis? Possimus ratione ab
-                suscipit vitae deserunt provident explicabo recusandae?
+                Here are some of the best travel destinations that you can
+                choose. We have a wide range of travel destinations that you can
+                choose from. We have a team of professionals who will guide you
+                through your travel journey
               </p>
             </div>
           </div>
@@ -36,10 +36,11 @@ const TipsAndGuide = () => {
               </div>
               <h1 className="text-xl font-bold mt-4">Request a travel</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                iste, veritatis numquam rerum dignissimos laborum culpa ut,
-                officia facilis distinctio blanditiis? Possimus ratione ab
-                suscipit vitae deserunt provident explicabo recusandae?
+                Travel request is a feature that allows you to request a travel,
+                and we will get back to you with the best travel experience. We
+                have a wide range of travel destinations that you can choose
+                from. We have a team of professionals who will guide you through
+                your travel journey
               </p>
             </div>
           </div>
@@ -52,10 +53,10 @@ const TipsAndGuide = () => {
                 Enjoy Your Dream Destination
               </h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                iste, veritatis numquam rerum dignissimos laborum culpa ut,
-                officia facilis distinctio blanditiis? Possimus ratione ab
-                suscipit vitae deserunt provident explicabo recusandae?
+                Enjoy your dream destination with us. We provide the best travel
+                experience for you. We have a wide range of travel destinations
+                that you can choose from. We have a team of professionals who
+                will guide you through your travel journey
               </p>
             </div>
           </div>

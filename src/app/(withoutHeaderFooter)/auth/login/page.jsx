@@ -16,6 +16,10 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { z } from "zod";
 
+import { Typography } from "antd";
+
+const { Paragraph, Text } = Typography;
+
 const loginValidationSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z
@@ -75,6 +79,73 @@ const LoginPage = () => {
       </div>
       <div className="flex items-center justify-center bg-drd-dark-green p-8">
         <div className="border rounded-lg p-8 lg:p-16 bg-drd-light-green">
+          <div className="pb-4">
+            <h3 className="text-center capitalize">
+              login credentials (only for test)
+            </h3>
+            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between text-xs">
+              <div>
+                <p>As user</p>
+                <Paragraph
+                  copyable={{
+                    text: async () =>
+                      new Promise((resolve) => {
+                        setTimeout(() => {
+                          resolve("user111@gmail.com");
+                        }, 500);
+                      }),
+                  }}
+                  style={{
+                    marginBottom: 0,
+                  }}
+                >
+                  email: <strong>user111@gmail.com</strong>
+                </Paragraph>
+                <Paragraph
+                  copyable={{
+                    text: async () =>
+                      new Promise((resolve) => {
+                        setTimeout(() => {
+                          resolve("12345679");
+                        }, 500);
+                      }),
+                  }}
+                >
+                  password: <strong>12345679</strong>
+                </Paragraph>
+              </div>
+              <div>
+                <p>As Admin</p>
+                <Paragraph
+                  copyable={{
+                    text: async () =>
+                      new Promise((resolve) => {
+                        setTimeout(() => {
+                          resolve("admin@dream.com");
+                        }, 500);
+                      }),
+                  }}
+                  style={{
+                    marginBottom: 0,
+                  }}
+                >
+                  email: <strong>admin@dream.com</strong>
+                </Paragraph>
+                <Paragraph
+                  copyable={{
+                    text: async () =>
+                      new Promise((resolve) => {
+                        setTimeout(() => {
+                          resolve("admin123");
+                        }, 500);
+                      }),
+                  }}
+                >
+                  password: <strong>admin123</strong>
+                </Paragraph>
+              </div>
+            </div>
+          </div>
           <div className="pb-8">
             <h1 className=" text-2xl md:text-3xl lg:text-6xl font-bold text-center text-drdPrimary pb-4">
               Welcome Back

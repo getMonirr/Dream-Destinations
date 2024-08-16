@@ -22,7 +22,7 @@ const TravelSection = async () => {
       <DrdSection
         name="Our Travel"
         description={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, debitis!"
+          "We provide the best travel experience for you. We have a wide range of travel destinations that you can choose from. We have a team of professionals who will guide you through your travel journey"
         }
       >
         {/* <h1 className="text-3xl font-bold">Travel</h1> */}

@@ -15,7 +15,7 @@ const FeaturedDestination = async () => {
     <div className="py-8">
       <DrdSection
         name="Find out most popular destinations"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, debitis!"
+        description="We provide the best travel experience for you. We have a wide range of travel destinations that you can choose from. We have a team of professionals who will guide you through your travel journey"
       >
         {/* <h1 className="text-3xl font-bold">Featured Destinations</h1> */}
       </DrdSection>
